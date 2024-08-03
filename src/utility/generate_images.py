@@ -15,20 +15,19 @@ import shutil
 client = OpenAI()
 
 
-def generateImages(image_path):
+def generateImages(image_path, destination_directory):
     """
     Given an image, generates a similar synthetic image and saves both in the
     specified folder
     """
     label = image_path.split('/')[-2]
     folder_name = '/'.join(image_path.split('/')[:-1])+'/'
-    destination_folder = folder_name.replace('train','synthetic_train')
-    os.makedirs(destination_folder, exist_ok=True)
+    os.makedirs(destination_directory, exist_ok=True)
     
-    shutil.copyfile(image_path, destination_folder + image_path.split('/')[-1])
+    shutil.copyfile(image_path, destination_directory + '/' + image_path.split('/')[-1])
     
     image_filenames = [
-        name for name in os.listdir(destination_folder) 
+        name for name in os.listdir(destination_directory) 
         if (os.path.isfile(f'{folder_name}/{name}'))
     ]
     
@@ -62,8 +61,8 @@ def generateImages(image_path):
         synthetic_img = synthetic_img.resize((128,128))
         
         # Save image to file
-        synthetic_image_filepath = f'{destination_folder}/{label}_generated{n+1}.png'
+        synthetic_image_filepath = f'{destination_directory}/{label}_generated{n+1}.png'
         synthetic_img.save(synthetic_image_filepath)
     
     # Wait a few seconds to avoid rate limiting
-    time.sleep(2)
+    time.sleep(1)
