@@ -24,14 +24,13 @@ def generateImages(image_path, destination_directory):
     folder_name = '/'.join(image_path.split('/')[:-1])+'/'
     os.makedirs(destination_directory, exist_ok=True)
     
-    shutil.copyfile(image_path, destination_directory + '/' + image_path.split('/')[-1])
+    #shutil.copyfile(image_path, destination_directory + '/' + image_path.split('/')[-1])
     
     image_filenames = [
-        name for name in os.listdir(destination_directory) 
-        if (os.path.isfile(f'{folder_name}/{name}'))
+        name for name in os.listdir(destination_directory)
     ]
     
-    n = len(image_filenames)+1
+    n = len(image_filenames)
 
     # Read the image file from disk and convert to RGB
     # (OpenAI API need RGB, so we'll convert back to greyscale after)
