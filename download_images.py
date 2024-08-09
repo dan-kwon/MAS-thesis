@@ -37,14 +37,14 @@ def download_data(dataset_name, folder_name, split):
 
     print("All images saved successfully!")
 
-
-download_data(
-    dataset_name='Falah/Alzheimer_MRI',
-    folder_name='alzheimer_mri',
-    split='train'
-)
-download_data(
-    dataset_name='Falah/Alzheimer_MRI',
-    folder_name='alzheimer_mri',
-    split='test'
-)
+if __name__=='__main__':
+    download_data(
+        dataset_name='Falah/Alzheimer_MRI',
+        folder_name='alzheimer_mri',
+        split='train'
+    )
+    download_data(
+        dataset_name='Falah/Alzheimer_MRI',
+        folder_name='alzheimer_mri',
+        split='test'
+    )
