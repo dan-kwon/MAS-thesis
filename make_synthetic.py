@@ -22,7 +22,7 @@ def main():
         
         if subfolder == 'NonDemented':         
             from_directory = f"{train_directory}/{subfolder}"
-            to_directory = f"{destination_directory}/{subfolder}"
+            to_directory = f"{destination_directory}"
             copy_tree(from_directory, to_directory)    
         
         else:
