@@ -21,10 +21,7 @@ def generateImages(image_path, destination_directory):
     specified folder
     """
     label = image_path.split('/')[-2]
-    folder_name = '/'.join(image_path.split('/')[:-1])+'/'
     os.makedirs(destination_directory, exist_ok=True)
-    
-    #shutil.copyfile(image_path, destination_directory + '/' + image_path.split('/')[-1])
     
     image_filenames = [
         name for name in os.listdir(destination_directory)
