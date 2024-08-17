@@ -8,9 +8,9 @@ from io import BytesIO
 from PIL import Image
 from openai import OpenAI
 import requests
-import time
+import random
 import shutil
-
+import time
 
 client = OpenAI()
 
@@ -56,9 +56,29 @@ def generateImages(image_path, destination_directory):
         synthetic_img = Image.open(BytesIO(r.content))
         synthetic_img = synthetic_img.resize((128,128))
         
-        # Save image to file
+        # Save synthetic image to file
         synthetic_image_filepath = f'{destination_directory}/{label}_generated{n+1}.png'
         synthetic_img.save(synthetic_image_filepath)
-    
-    # Wait a few seconds to avoid rate limiting
-    time.sleep(1)
+        
+        # Save original image
+        shutil.copyfile(image_path, destination_directory + image_path.split('/')[-1])
+
+        # Wait a second to avoid rate limiting
+        time.sleep(1)
+
+
+def makeSyntheticTrain(train_directory, train_percentage):
+
+    subfolders = [f for f in os.listdir(train_directory)]
+
+    for s in subfolders:
+        
+        subfolder_path = f"{train_directory}/{s}"
+        files = os.listdir(subfolder_path)
+        sample_files = random.sample(files, round(len(files)*train_percentage))
+        
+        for f in sample_files:
+            
+            image_path = f"{subfolder_path}/{f}"
+            destination_directory = f"data/alzheimer_mri/synthetic_train/{s}/"
+            generateImages(image_path, destination_directory)
