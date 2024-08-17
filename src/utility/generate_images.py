@@ -60,24 +60,39 @@ def generateImages(image_path, destination_directory):
         synthetic_image_filepath = f'{destination_directory}/{label}_generated{n+1}.png'
         synthetic_img.save(synthetic_image_filepath)
         
-        # Save original image
-        shutil.copyfile(image_path, destination_directory + image_path.split('/')[-1])
-
         # Wait a second to avoid rate limiting
         time.sleep(1)
 
 
-def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage):
+def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage, synthetic_percentage):
 
+    # Remove any existing images in directory
+    try:
+        shutil.rmtree(synthetic_directory)
+    except:
+        print("directory does not exist")
+
+    # Loop through subfolders, generate synthetic images
     subfolders = [f for f in os.listdir(train_directory)]
 
     for s in subfolders:
+        os.makedirs(f"{synthetic_directory}/{s}", exist_ok=True)
         
         subfolder_path = f"{train_directory}/{s}"
         files = os.listdir(subfolder_path)
         sample_files = random.sample(files, round(len(files)*train_percentage))
         
-        for f in sample_files[0:2]:
+        # Move sample files to synthetic directory
+        for f in sample_files:
+            
+            image_path = f"{subfolder_path}/{f}"
+            destination_directory = f"{synthetic_directory}/{s}/"
+            shutil.copyfile(image_path, destination_directory + image_path.split('/')[-1])
+            
+        # Create synthetic images
+        source_files = random.sample(sample_files, round(len(sample_files)*synthetic_percentage))
+        
+        for f in source_files:
             
             image_path = f"{subfolder_path}/{f}"
             destination_directory = f"{synthetic_directory}/{s}/"
