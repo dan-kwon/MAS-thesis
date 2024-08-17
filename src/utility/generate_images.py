@@ -67,7 +67,7 @@ def generateImages(image_path, destination_directory):
         time.sleep(1)
 
 
-def makeSyntheticTrain(train_directory, train_percentage):
+def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage):
 
     subfolders = [f for f in os.listdir(train_directory)]
 
@@ -77,8 +77,8 @@ def makeSyntheticTrain(train_directory, train_percentage):
         files = os.listdir(subfolder_path)
         sample_files = random.sample(files, round(len(files)*train_percentage))
         
-        for f in sample_files:
+        for f in sample_files[0:2]:
             
             image_path = f"{subfolder_path}/{f}"
-            destination_directory = f"data/alzheimer_mri/synthetic_train/{s}/"
+            destination_directory = f"{synthetic_directory}/{s}/"
             generateImages(image_path, destination_directory)
