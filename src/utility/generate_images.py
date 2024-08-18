@@ -61,7 +61,7 @@ def generateImages(image_path, destination_directory):
         synthetic_img.save(synthetic_image_filepath)
         
         # Wait a second to avoid rate limiting
-        time.sleep(1)
+        time.sleep(5)
 
 
 def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage, synthetic_percentage):
