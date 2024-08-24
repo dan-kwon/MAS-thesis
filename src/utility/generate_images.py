@@ -21,6 +21,7 @@ def generateImages(image_path, destination_directory):
     specified folder
     """
     label = image_path.split('/')[-2]
+    image_num = image_path.split('/')[-1].split('.')[0].split('_')[-1]
     os.makedirs(destination_directory, exist_ok=True)
     
     image_filenames = [
@@ -57,11 +58,11 @@ def generateImages(image_path, destination_directory):
         synthetic_img = synthetic_img.resize((128,128))
         
         # Save synthetic image to file
-        synthetic_image_filepath = f'{destination_directory}/{label}_generated{n+1}.png'
+        synthetic_image_filepath = f'{destination_directory}/{label}_{image_num}_generated{n+1}.png'
         synthetic_img.save(synthetic_image_filepath)
         
         # Wait a second to avoid rate limiting
-        time.sleep(5)
+        time.sleep(10)
 
 
 def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage, synthetic_percentage):

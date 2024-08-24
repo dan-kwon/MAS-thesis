@@ -2,7 +2,6 @@ import os
 
 from src.utility.generate_images import generateImages
 import shutil
-from distutils.dir_util import copy_tree
 
 def main():
     # remove any existing images in directory
@@ -20,17 +19,11 @@ def main():
         destination_directory = train_directory.replace('train','synthetic')+'/'+subfolder
         os.makedirs(destination_directory, exist_ok=True)
         
-        if subfolder == 'NonDemented':         
-            from_directory = f"{train_directory}/{subfolder}"
-            to_directory = f"{destination_directory}"
-            copy_tree(from_directory, to_directory)    
-        
-        else:
-            files = os.listdir(train_directory + '/' + subfolder)
-            for f in files:            
-                image_path = train_directory + '/' + subfolder + '/' + f
-                for r in range(3):
-                    generateImages(image_path, destination_directory)
+        files = os.listdir(train_directory + '/' + subfolder)
+        for f in files:            
+            image_path = train_directory + '/' + subfolder + '/' + f
+            for r in range(3):
+                generateImages(image_path, destination_directory)
 
 if __name__=='__main__':
     main()
