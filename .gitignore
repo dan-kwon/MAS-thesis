@@ -163,7 +163,7 @@ cython_debug/
 .DS_Store
 
 # Saved model from pytorch - ignoring because of large file size
-best_model.pth
+*.pth
 
 # Ignore the folder that holds synthetic training data
 data/alzheimer_mri/synthetic_train/
