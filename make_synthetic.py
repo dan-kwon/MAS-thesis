@@ -10,7 +10,6 @@ def main():
     except:
         print("directory does not exist")
 
-
     # pull real image filepaths and generate a synthetic lookalike
     train_directory = 'data/alzheimer_mri/train'
 
