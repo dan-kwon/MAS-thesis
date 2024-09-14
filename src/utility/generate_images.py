@@ -77,11 +77,18 @@ def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage, s
     subfolders = [f for f in os.listdir(train_directory)]
 
     for s in subfolders:
+        # for each subfolder in the train directory, make the same in the synthetic train directory
         os.makedirs(f"{synthetic_directory}/{s}", exist_ok=True)
         
+        # get a random sample from each subfolder
         subfolder_path = f"{train_directory}/{s}"
         files = os.listdir(subfolder_path)
         sample_files = random.sample(files, round(len(files)*train_percentage))
+        
+        # create synthetic sample based on sampled original images
+        synthetic_subfolder_path = subfolder_path.replace('train','synthetic')
+        synthetic_files = [f for f in os.listdir(synthetic_subfolder_path) if int(f.replace('.png','').split('_')[1]) in [int(f.replace('.png','').split('_')[1]) for f in sample_files]]
+        synthetic_sample_files = random.sample(synthetic_files, round(len(files)*synthetic_percentage))
         
         # Move sample files to synthetic directory
         for f in sample_files:
@@ -89,12 +96,10 @@ def makeSyntheticTrain(train_directory, synthetic_directory, train_percentage, s
             image_path = f"{subfolder_path}/{f}"
             destination_directory = f"{synthetic_directory}/{s}/"
             shutil.copyfile(image_path, destination_directory + image_path.split('/')[-1])
-            
-        # Create synthetic images
-        source_files = random.sample(sample_files, round(len(sample_files)*synthetic_percentage))
-        
-        for f in source_files:
-            
-            image_path = f"{subfolder_path}/{f}"
+
+        # Move synthetic sample files to synthetic directory
+        for f in synthetic_sample_files:
+
+            image_path = f"{synthetic_subfolder_path}/{f}"
             destination_directory = f"{synthetic_directory}/{s}/"
-            generateImages(image_path, destination_directory)
+            shutil.copyfile(image_path, destination_directory + image_path.split('/')[-1])
