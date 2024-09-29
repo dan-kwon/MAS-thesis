@@ -12,16 +12,16 @@ pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.conf
 
 image = PIL.Image.open("data/alzheimer_mri/train/MildDemented/MildDemented_0.png")
 image = PIL.ImageOps.exif_transpose(image)
-image = image.convert("RGB")
+#image = image.convert("RGB")
 tform = transforms.Compose([
-    transforms.ToTensor(),
+    #transforms.ToTensor(),
     v2.Grayscale(num_output_channels=3),
     transforms.Resize(
         (224, 224)),
     ])
 
-inp = tform(im).to(device).unsqueeze(0)
+inp = tform(image).to('cpu').unsqueeze(0)
 
 prompt = "create a similar image"
-images = pipe(prompt, image=image, num_inference_steps=5, image_guidance_scale=1.5, text_guidance_scale=7.5).images
+images = pipe(prompt, image=tform(image), num_inference_steps=10, image_guidance_scale=15).images
 images[0]

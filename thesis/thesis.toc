@@ -1,0 +1,21 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {chapter}{\numberline {2}Dataset}{3}{}%
+\contentsline {section}{\numberline {2.1}Alzheimer MRI Preprocessed Dataset}{3}{}%
+\contentsline {section}{\numberline {2.2}Synthetic Images}{4}{}%
+\contentsline {chapter}{\numberline {3}Exploration using Grad-CAM}{5}{}%
+\contentsline {section}{\numberline {3.1}Grad-CAM details}{5}{}%
+\contentsline {section}{\numberline {3.2}Grad-CAM results}{6}{}%
+\contentsline {chapter}{\numberline {4}Background on Training Deep Learning Models}{7}{}%
+\contentsline {subsection}{\numberline {4.0.1}Overview of Neural Networks}{7}{}%
+\contentsline {subsection}{\numberline {4.0.2}Loss Function}{8}{}%
+\contentsline {subsection}{\numberline {4.0.3}Stochastic Optimization}{10}{}%
+\contentsline {section}{\numberline {4.1}Overview of Model Architectures}{11}{}%
+\contentsline {subsection}{\numberline {4.1.1}Convolutional Neural Networks}{11}{}%
+\contentsline {subsection}{\numberline {4.1.2}Vision Transformers}{12}{}%
+\contentsline {section}{\numberline {4.2}Methodology}{13}{}%
+\contentsline {subsection}{\numberline {4.2.1}Traditional Image Augmentation Policies}{13}{}%
+\contentsline {subsection}{\numberline {4.2.2}Synthetic Image Generation Policy}{13}{}%
+\contentsline {section}{\numberline {4.3}Results}{15}{}%
+\contentsline {subsection}{\numberline {4.3.1}CNN Results}{15}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{18}{}%
+\contentsline {chapter}{\numberline {6}Additional Considerations}{19}{}%
