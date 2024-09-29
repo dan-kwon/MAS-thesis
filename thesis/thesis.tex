@@ -158,7 +158,7 @@ When Grad-CAM is
 
 \chapter{Background on Training Deep Learning Models}
 
-\subsection{Overview of Neural Networks}
+\section{Overview of Neural Networks}
 While deep learning architectures can span many layers and can incorporate many different mechanisms, at its core all 
 deep learning models are neural networks. Training neural networks comprise of a few key steps. 
 
@@ -195,7 +195,7 @@ training iteration, or epoch, will then take a mini-batch to apply the forward a
 weights and biases. The result is an accurate approximation of the gradient of the loss function while significantly 
 decreasing computational expenses [source].
 
-\subsection{Loss Function}
+\section{Loss Function}
 The loss function used throughout this paper when measuring model performance is cross entropy loss. Cross entropy loss 
 is defined as:
 
@@ -224,15 +224,71 @@ prediction very bad. The squared residual would be \((1-0.0001)^{2} = 0.9998\) w
 more punitive at \(-log(0.0001) = 4\). Cross entropy loss also has a much larger gradient for very bad predictions, 
 allowing our model to more quickly learn to avoid bad predictions.
 
-\subsection{Stochastic Optimization}
-All models mentioned in this paper are trained using the Adaptive Mom
+\section{Gradient Descent}
+As mentioned previously, performing gradient descent on every single training image can be computationally inefficient. 
+Instead, stochastic gradient descent which divides the training dataset into smaller batches and applied the gradient 
+descent algorithm on each batch, can significantly reduce runtime. 
 
-\newpage
-\section{Overview of Model Architectures}
+In addition to dividing the training dataset into mini-batches, there are other methods that make optimization via 
+gradient descent more efficient---namely, learning rate and momentum.
+
+\subsection{Learning Rate}
+The formulation for stochastic gradient descent is defined as:
+\[\theta_{t+1} = \theta_{t} - \eta\nabla_{\theta}L(\theta_{t};x^{(i)})\]
+\begin{itemize}
+    \item \(\theta_{t}\) is the model's weights and biases at iteration \(t\)
+    \item \(\eta\) is the learning rate
+    \item \(\nabla_{\theta}L(\theta_{t};X^{(i)})\) is the gradient of the loss function at time \(t\) with respect to 
+    \(x^{(i)}\)
+    \item \(x^{(i)}\) is a randomly selected mini-batch
+\end{itemize}
+
+The learning rate is a critical parameter for the training of any deep learning model and can dramatically effect how 
+the gradient descent algorithm behaves. Learning rate can be understood intuitively as the step size the optimization 
+algorithm takes when it decides which direction to step---too large of a learning rate can lead to sub-optimal changes 
+to a network's weights and biases; too small and achieving model convergence can much longer.
+
+Furthermore, the learning rate does not necessarily need to be constant throughout the entire optimization process. It 
+can vary over time with a larger learning rate at the beginning of the training, when large steps along the gradient is 
+appropriate, and reducing later in training process, when smaller learning rates are more appropriate.
+
+\subsection{Momentum}
+Momentum takes into account the gradient at previous steps, beyond simply looking at the gradient at time \(t-1\). By 
+doing so, the gradient descent algorithm tends to stay in the direction where the gradient has consistently pointed 
+towards. The formulation for stochastic gradient descent with momentum is defines as:
+\[\theta_{t+1} = \theta_{t} - \eta v_{t}\]
+Where \(v_{t}\) is known as the velocity term, defined as:
+\[v_{t} = \beta v_{t-1} + (1 - \beta) \nabla_{\theta} L(\theta_{t})\]
+\begin{itemize}
+    \item \(\beta\) is the momentum coefficient, which determines how much of the previous gradients carry over into the 
+    latest velocity calculation at time \(t\)---this parameter can be set between 0 and 1
+    \item \(\nabla_{\theta} L(\theta_{t})\) is the gradient of the loss function at time \(t-1\)
+\end{itemize}
+
+\subsection{Adam Optimizer}
+Adaptive Moment Estimation, also known as Adam Optimization, combines aspects of both a variable learning rate as well 
+as momentum in order to develop an optimization algorithm that efficiently calculates the gradient. Gradient descent 
+using Adam optimization is defined as:
+\[\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{\hat{v_t}} + \epsilon} \hat{m_{t}}\]
+\begin{itemize}
+    \item \(\hat{m_{t}}\) is known as the bias correction for the first moment and defined as \(\frac{m_t}{1-\beta_1^t}\)
+    \item \(\hat{v_t}\) is known as the bias correction for the second momemt and defined as \(\frac{v_t}{1-\beta_2^t}\)
+    \item \(m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_{\theta} L(\theta_t)\)
+    \item \(v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_{\theta} L(\theta_t))^2\)
+    \item \(\beta_1\) is the decay rate for the first moment
+    \item \(\beta_2\) is the decay rate for the second moment
+\end{itemize}
+
+The first moment \(m_t\) allows the Adam optimization algorithms to take into account momentum by taking the weighted 
+average of past gradients. The second moment \(v_t\) acts as an adjustment to the learning rate and allows Adam 
+algorithm to have a variable learning rate based on previous squared gradients. For all models trained in this paper, we 
+use the Adam optimizer.
+
+
+\chapter{Overview of Model Architectures}
 We test two different architectures for our image classification models---a basic Convolutional Neural Network (CNN) and 
 a Vision Transformer (ViT)---in order to gain an understanding as to how both convolution-based and attention-based 
-architectures react to the introduction to synthetic data in training. While the details of either architectures are 
-outside the scope of this paper, a brief over of both are provided below.
+architectures react to the introduction to synthetic data in training. A brief over of both are provided below.
 
 \subsection{Convolutional Neural Networks}
 
@@ -256,10 +312,9 @@ each of our four classes.
 \subsection{Vision Transformers}
 WIP
 
-\newpage
-\section{Methodology}
-\subsection{Traditional Image Augmentation Policies}
-\subsection{Synthetic Image Generation Policy}
+\chapter{Methodology}
+\section{Traditional Image Augmentation Policies}
+\section{Synthetic Image Generation Policy}
 Given a desired proportion of original training images to utilize (\textit{X}) and the desired proportion of synthetic 
 images to augment the training data (\textit{Y}), we combine both synthetic and original images to train our image 
 classification model. 

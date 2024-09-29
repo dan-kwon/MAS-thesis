@@ -6,9 +6,11 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration of a typical fully-connected neural network\relax }}{7}{}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of Cross Entropy Loss vs Squared Residual\relax }}{9}{}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Typical CNN Architecture\relax }}{11}{}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Enter Caption\relax }}{13}{}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic\relax }}{15}{}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Comparison of resulting cross entropy loss across models using different image augmentation policies, all trained on 30\% of available images\relax }}{16}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Typical CNN Architecture\relax }}{13}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Enter Caption\relax }}{15}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic\relax }}{17}{}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Comparison of resulting cross entropy loss across models using different image augmentation policies, all trained on 30\% of available images\relax }}{18}{}%
 \addvspace {10pt}
 \addvspace {10pt}

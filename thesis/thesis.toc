@@ -6,16 +6,19 @@
 \contentsline {section}{\numberline {3.1}Grad-CAM details}{5}{}%
 \contentsline {section}{\numberline {3.2}Grad-CAM results}{6}{}%
 \contentsline {chapter}{\numberline {4}Background on Training Deep Learning Models}{7}{}%
-\contentsline {subsection}{\numberline {4.0.1}Overview of Neural Networks}{7}{}%
-\contentsline {subsection}{\numberline {4.0.2}Loss Function}{8}{}%
-\contentsline {subsection}{\numberline {4.0.3}Stochastic Optimization}{10}{}%
-\contentsline {section}{\numberline {4.1}Overview of Model Architectures}{11}{}%
-\contentsline {subsection}{\numberline {4.1.1}Convolutional Neural Networks}{11}{}%
-\contentsline {subsection}{\numberline {4.1.2}Vision Transformers}{12}{}%
-\contentsline {section}{\numberline {4.2}Methodology}{13}{}%
-\contentsline {subsection}{\numberline {4.2.1}Traditional Image Augmentation Policies}{13}{}%
-\contentsline {subsection}{\numberline {4.2.2}Synthetic Image Generation Policy}{13}{}%
-\contentsline {section}{\numberline {4.3}Results}{15}{}%
-\contentsline {subsection}{\numberline {4.3.1}CNN Results}{15}{}%
-\contentsline {chapter}{\numberline {5}Conclusion}{18}{}%
-\contentsline {chapter}{\numberline {6}Additional Considerations}{19}{}%
+\contentsline {section}{\numberline {4.1}Overview of Neural Networks}{7}{}%
+\contentsline {section}{\numberline {4.2}Loss Function}{8}{}%
+\contentsline {section}{\numberline {4.3}Gradient Descent}{10}{}%
+\contentsline {subsection}{\numberline {4.3.1}Learning Rate}{10}{}%
+\contentsline {subsection}{\numberline {4.3.2}Momentum}{11}{}%
+\contentsline {subsection}{\numberline {4.3.3}Adam Optimizer}{11}{}%
+\contentsline {chapter}{\numberline {5}Overview of Model Architectures}{13}{}%
+\contentsline {subsection}{\numberline {5.0.1}Convolutional Neural Networks}{13}{}%
+\contentsline {subsection}{\numberline {5.0.2}Vision Transformers}{14}{}%
+\contentsline {chapter}{\numberline {6}Methodology}{15}{}%
+\contentsline {section}{\numberline {6.1}Traditional Image Augmentation Policies}{15}{}%
+\contentsline {section}{\numberline {6.2}Synthetic Image Generation Policy}{15}{}%
+\contentsline {section}{\numberline {6.3}Results}{17}{}%
+\contentsline {subsection}{\numberline {6.3.1}CNN Results}{17}{}%
+\contentsline {chapter}{\numberline {7}Conclusion}{20}{}%
+\contentsline {chapter}{\numberline {8}Additional Considerations}{21}{}%
