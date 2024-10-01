@@ -6,7 +6,7 @@
 %                                                                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title          {Augmenting MRI Classified with Synthetic Images \\
+\title          {Augmenting MRI Classification with Synthetic Images \\
                 Created via Generative Models}
 \author         {Daniel Kwon}
 \department     {Statistics}
@@ -30,6 +30,7 @@
 \usepackage{array, makecell}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{wrapfig,lipsum}
 \renewcommand\cellset{\renewcommand\arraystretch{0.8}%
 \setlength\extrarowheight{0pt}}
 
@@ -124,7 +125,7 @@ technique that maps the gradients of a final convolutional layer in regards to a
 heat map. The result is a visually intuitive way of illustrating which portions of an image contribute most to a given 
 classification [source here].
 
-\section{Grad-CAM details}
+\section{Overview of Grad-CAM}
 \begin{enumerate}
     \item First, calculate the gradients of the model’s output in the final convolutional layer, with respect to the 
     feature maps. Assuming \(y_{c}\) is the score for class \(c\) (before softmax) and \(\delta A^{k}\) is the feature 
@@ -153,7 +154,7 @@ classification [source here].
     original image in order to overlay the two.
 \end{enumerate}
 
-\section{Grad-CAM results}
+\section{Exploratory Results}
 When Grad-CAM is 
 
 \chapter{Background on Training Deep Learning Models}
@@ -235,6 +236,7 @@ gradient descent more efficient---namely, learning rate and momentum.
 \subsection{Learning Rate}
 The formulation for stochastic gradient descent is defined as:
 \[\theta_{t+1} = \theta_{t} - \eta\nabla_{\theta}L(\theta_{t};x^{(i)})\]
+Where:
 \begin{itemize}
     \item \(\theta_{t}\) is the model's weights and biases at iteration \(t\)
     \item \(\eta\) is the learning rate
@@ -259,6 +261,7 @@ towards. The formulation for stochastic gradient descent with momentum is define
 \[\theta_{t+1} = \theta_{t} - \eta v_{t}\]
 Where \(v_{t}\) is known as the velocity term, defined as:
 \[v_{t} = \beta v_{t-1} + (1 - \beta) \nabla_{\theta} L(\theta_{t})\]
+Where:
 \begin{itemize}
     \item \(\beta\) is the momentum coefficient, which determines how much of the previous gradients carry over into the 
     latest velocity calculation at time \(t\)---this parameter can be set between 0 and 1
@@ -270,6 +273,7 @@ Adaptive Moment Estimation, also known as Adam Optimization, combines aspects of
 as momentum in order to develop an optimization algorithm that efficiently calculates the gradient. Gradient descent 
 using Adam optimization is defined as:
 \[\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{\hat{v_t}} + \epsilon} \hat{m_{t}}\]
+Where:
 \begin{itemize}
     \item \(\hat{m_{t}}\) is known as the bias correction for the first moment and defined as \(\frac{m_t}{1-\beta_1^t}\)
     \item \(\hat{v_t}\) is known as the bias correction for the second momemt and defined as \(\frac{v_t}{1-\beta_2^t}\)
@@ -284,13 +288,26 @@ average of past gradients. The second moment \(v_t\) acts as an adjustment to th
 algorithm to have a variable learning rate based on previous squared gradients. For all models trained in this paper, we 
 use the Adam optimizer.
 
+\subsection{Fine-tuning Pre-trained Models}
+Often times, computer vision models require a large number of images as well as a significant amount of computation 
+time. In order to accelerate the training process, many image classification models will utilize a pre-trained model, 
+instead of starting training from randomly initialized weights and biases. The most common image dataset used to 
+pretrain models is the ImageNet-1000 dataset, which is comprised of 1000 distinct classes, 1,281,167 training images, 
+50,000 validation images and 100,000 test images.
+
+Once a model is pre-trained, fine-tuning can take two forms---either progressing through training as you normally would
+with images intended for fine-tuning (i.e., your dataset) or freezing all weights in the pre-trained model (essentially 
+locking the model from any further training) and re-training only the fully connected neural nerwork appended to the 
+pre-trained model. If the latter method is used, the pre-trained model can regarded as a fixed feature extractor for an 
+image. For the purposes of our paper, all pre-trained models are fine-tuned by re-training on our dataset.
 
 \chapter{Overview of Model Architectures}
-We test two different architectures for our image classification models---a basic Convolutional Neural Network (CNN) and 
-a Vision Transformer (ViT)---in order to gain an understanding as to how both convolution-based and attention-based 
-architectures react to the introduction to synthetic data in training. A brief over of both are provided below.
+In order to gain an understanding as to how both convolution-based and attention-based architectures react to the 
+introduction to synthetic data in training, We tested three different deep learning model architectures for our image 
+classification models---a basic Convolutional Neural Network (CNN), a pretrained ResNet-18 model, and a pretrained 
+Vision Transformer (ViT).
 
-\subsection{Convolutional Neural Networks}
+\section{Convolutional Neural Networks}
 
 \begin{figure}[h]
     \centering
@@ -299,18 +316,92 @@ architectures react to the introduction to synthetic data in training. A brief o
     \label{fig:synthetic-mix}
 \end{figure}
 
-A CNN a deep learning architecture that is comprised of convolutional layers---which abstract an image to a feature map, 
-pooling layers---which reduce the dimensions of data by combining the outputs of adjacent layers via downsampling, and 
-fully connected layers---which are neural networks that take the final activations from the convolutional and pooling 
-layers to generate class weights.
+CNNs are a deep learning architecture that is comprised of convolutional layers---which abstract an image to a feature 
+map, pooling layers---which reduce the dimensions of data by combining the outputs of adjacent layers via downsampling, 
+and fully connected layers---which are neural networks that take the final activations from the convolutional and 
+pooling layers to generate class weights.
 
-For the purposes of this paper, we utilize a CNN with 2 convolutional layers, each paired with a ReLU activation 
-function and a max pooling layer. After all feature extraction layers are complete, the final activation layer is fed 
-into a fully connected neural network with 2 hidden layers and an output layer that predicts probabilities weights for 
-each of our four classes.
+Convolutional layers are a key component of convolutional neural networks and act as a way for the network to 
+extract abstract features from an image. The primary operating mechanism of a convolutional layer comprises of a kernel,
+or a filter that is applied to the original image.
 
-\subsection{Vision Transformers}
-WIP
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/convolutional_layer_illustration.jpg}
+    \caption{Illustration of Convolutional Layer}
+    \label{fig:synthetic-mix}
+\end{figure}
+
+Often, convolutional layers may stack multiple kernels resulting in activation maps with more channels. As subsequent 
+layers get deeper, more complex and increasingly abstract features are extracted from the original image. While the 
+kernels from the earlier layers of a CNN may learn to identify basic shapes and patterns, kernels in deeper layers may 
+learn to identify specific edges and details.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\linewidth]{figures/maxpooling_illustration.jpg}
+    \caption{Illustration of 2x2 Max Pooling}
+    \label{fig:maxpooling-illust}
+\end{figure}
+
+Though not explicitly required, max pooling layers frequently follow convolutional layers. Max pooling layers 
+essentially downsample the activation map so that the important features and spatial relationships contained in an image
+are captured while removing unnecessary details and reducing the feature map's dimensions, thereby improving 
+computational efficiency of the network.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/basic_cnn_architecture.jpg}
+    \caption{Basic CNN Architecture}
+    \label{fig:cnn-architecture}
+\end{figure}
+
+For the purposes of this paper, the CNN we train from scratch consists of 2 convolutional layers, each paired with a 
+ReLU activation function and a max pooling layer. After all feature extraction layers are complete, the final activation 
+layer is fed into a fully connected neural network with 2 hidden layers and an output layer that predicts probabilities 
+weights for each of our four classes.
+
+\section{ResNet-18}
+The second model architecture we test is a ResNet-18 model, pre-trained on the ImageNet-1000 dataset. The ResNet 
+architecture is similar to a basic convolutional neural network but adds two additional components---skip connections 
+and residual blocks.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/resnet18_architecture.jpg}
+    \caption{ResNet-18 Architecture}
+    \label{fig:resnet-architecture}
+\end{figure}
+
+Skip connections allow the network to skip a convolutional layer entirely thereby skipping training for some layers.
+Doing so helps to avoid a phenomenon known as vanishing gradients---which occurs in deep networks where the gradient 
+calculated via backpropagation becomes so small that weights from earlier layers become insignificant and changes to the 
+input image cease to meaningfully affect feature mapping in deeper layers. Skip connections allow the ResNet model to 
+build deep networks while avoiding vanishing gradients by giving the model a mechanism in which training a layer can be 
+skipped entirely.
+
+ResNet architectures are also characterized by their use of residual blocks, which consistent of 2 convolutional layers 
+and a skip connection. Residual blocks allow the ResNet model to train on the residual between layers, or the difference 
+between the input and the ideal output of the layers. 
+
+\[y = F(x) + x\]
+
+Where:
+\begin{itemize}
+    \item \(x\) is input fed into the residual block
+    \item \(F(x)\) is output coming from the residual block
+    \item \(y\) is desired final output coming from the residual block
+\end{itemize}
+
+Therefore, \(F(x) = y - x\) makes \(F(x)\) the residual of y and x. ResNets train by using residual blocks to learn the 
+residual mapping, instead of being forced to train each convolutional layer and the desired feature map (although that 
+is still an option left for the model to evaluate). By doing so, the ResNet remains computationally efficient while 
+maintaining the ability to extract features, either through its traditional convolutional layers or via a residual 
+block. 
+
+\section{Vision Transformers}
+The last type of model architecture tested is one that foregoes the use of convolutional layers entirely. Instead, 
+vision transformers utilize the attention mechanism to capture spatial relationships and abstract features.
 
 \chapter{Methodology}
 \section{Traditional Image Augmentation Policies}
@@ -338,10 +429,9 @@ The figure above illustrates one iteration of our image generation policy in ord
 \end{enumerate}
 
 
-\newpage
-\section{Results}
+\chapter{Results}
 
-\subsection{CNN Results}
+\section{CNN Results}
 When applied to a basic convolutional neural network, augmentation via synthetic images provides the most benefit when 
 the dataset of original images is limited. When training our CNN on a 30\% stratified sample, the median validation loss 
 from 100 simulations was 0.219863, compared to a loss of 0.176023 when training on the full dataset---resulting in an 

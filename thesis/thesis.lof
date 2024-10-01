@@ -7,10 +7,15 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration of a typical fully-connected neural network\relax }}{7}{}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of Cross Entropy Loss vs Squared Residual\relax }}{9}{}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Typical CNN Architecture\relax }}{13}{}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Typical CNN Architecture\relax }}{14}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Illustration of Convolutional Layer\relax }}{15}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Illustration of 2x2 Max Pooling\relax }}{15}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Basic CNN Architecture\relax }}{16}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces ResNet-18 Architecture\relax }}{17}{}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Enter Caption\relax }}{15}{}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic\relax }}{17}{}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Comparison of resulting cross entropy loss across models using different image augmentation policies, all trained on 30\% of available images\relax }}{18}{}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Enter Caption\relax }}{19}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic\relax }}{22}{}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Comparison of resulting cross entropy loss across models using different image augmentation policies, all trained on 30\% of available images\relax }}{23}{}%
 \addvspace {10pt}
 \addvspace {10pt}
