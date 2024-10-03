@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {4.3.1}Learning Rate}{10}{}%
 \contentsline {subsection}{\numberline {4.3.2}Momentum}{11}{}%
 \contentsline {subsection}{\numberline {4.3.3}Adam Optimizer}{12}{}%
-\contentsline {subsection}{\numberline {4.3.4}Fine-tuning Pre-trained Models}{12}{}%
+\contentsline {section}{\numberline {4.4}Fine-tuning Pre-trained Models}{12}{}%
 \contentsline {chapter}{\numberline {5}Overview of Model Architectures}{14}{}%
 \contentsline {section}{\numberline {5.1}Convolutional Neural Networks}{14}{}%
 \contentsline {section}{\numberline {5.2}ResNet-18}{16}{}%
