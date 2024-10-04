@@ -404,8 +404,15 @@ block.
 The last type of model architecture tested is one that foregoes the use of convolutional layers entirely. Instead, 
 vision transformers utilize the attention mechanism to capture spatial relationships and abstract features.
 
-\chapter{Methodology}
-\section{Traditional Image Augmentation Policies}
+\chapter{Overview of Image Augmentation Techniques}
+In addition to different model architectures, we also tested different image segmentation policies. First, we apply 
+traditional image augmentation techniques---testing training pipelines that involve no image augmentation policy, a 
+basic image augmentation policy, or an auto-augmentation policy. Then, we test 
+
+\section{Basic Image Augmentation}
+
+\section{AutoAugment}
+
 \section{Synthetic Image Generation Policy}
 Given a desired proportion of original training images to utilize (\textit{X}) and the desired proportion of synthetic 
 images to augment the training data (\textit{Y}), we combine both synthetic and original images to train our image 
