@@ -17,9 +17,10 @@
 \contentsline {section}{\numberline {5.1}Convolutional Neural Networks}{14}{}%
 \contentsline {section}{\numberline {5.2}ResNet-18}{16}{}%
 \contentsline {section}{\numberline {5.3}Vision Transformers}{18}{}%
-\contentsline {chapter}{\numberline {6}Methodology}{19}{}%
-\contentsline {section}{\numberline {6.1}Traditional Image Augmentation Policies}{19}{}%
-\contentsline {section}{\numberline {6.2}Synthetic Image Generation Policy}{19}{}%
+\contentsline {chapter}{\numberline {6}Overview of Image Augmentation Techniques}{19}{}%
+\contentsline {section}{\numberline {6.1}Basic Image Augmentation}{19}{}%
+\contentsline {section}{\numberline {6.2}AutoAugment}{19}{}%
+\contentsline {section}{\numberline {6.3}Synthetic Image Generation Policy}{19}{}%
 \contentsline {chapter}{\numberline {7}Results}{21}{}%
 \contentsline {section}{\numberline {7.1}CNN Results}{21}{}%
 \contentsline {chapter}{\numberline {8}Conclusion}{24}{}%
