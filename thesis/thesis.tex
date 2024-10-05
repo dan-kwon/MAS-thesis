@@ -74,8 +74,7 @@ as well as compare their performance against an augmentation policy that generat
 \section{Alzheimer MRI Preprocessed Dataset}
 For the purposes of this paper, we use publicly available MRI images of patients with varying levels of dementia, 
 labeled as \textit{not demented}, \textit{very mildly demented}, \textit{mildly demented}, and \textit{moderately 
-demented}. These images were downloaded via the datasets module provided and maintained by Hugging Face. All images are 
-in black and white and have been pre-processed to 128x128 resolution.
+demented}.
 
 \begin{figure}[H]
     \centering
@@ -98,6 +97,10 @@ in black and white and have been pre-processed to 128x128 resolution.
     \caption{Count of each class in training data}
     \label{tab:my_label}
 \end{table}
+
+These images were downloaded via the datasets module provided and maintained by Hugging Face. All images are 
+in black and white and have been pre-processed to 128x128 resolution or 256x256 resolution, depending on the model being
+tested.
 
 \section{Synthetic Images}
 This paper utilizes OpenAI's Dall-E-2 to produce synthetic images. To generate synthetic images, an original image is 
@@ -156,7 +159,65 @@ classification [source here].
 \end{enumerate}
 
 \section{Exploratory Results}
-WIP
+In order to better understand what our models "look at" when evaluating an image and predicting a class, we take a basic 
+CNN with the same architecture outlined in chapter 5, section 1 and train it on real MRI images. While the model 
+architecture is relatively simple compared to deeper networks, it is sufficient in order to explore what parts of an 
+image a typical CNN focuses on. For the purposes of this exploratory analysis we only look at MRIs labeled as moderately 
+demented or non-demented, as these classes are the at the most extreme ends of the spectrum and will illustrate what 
+characteristics contribute to the model detecting the presence of absence dementia.
+
+\subsection{Real vs synthetic images labeled as having moderate dementia}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Real]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/ModerateDementedRealGradcam_predictModerateDemented.jpg}\label{fig:f1}}
+    \hspace{0.001\textwidth}
+    \subfloat[Synthetic]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/ModerateDementedSyntheticGradcam_predictModerateDemented.jpg}\label{fig:f2}}
+    \caption{Grad-CAM, Predicting: ModerateDemented}
+\end{figure}
+
+When looking at a real image of a brain with moderate dementia, we can see that signs of atrophy contribute to the 
+likelihood that the model classifies this brain as one with moderate dementia. When applying Grad-CAM on a synthetic 
+image generated via the previous original image as a source, we can see that the qualities that indicate the presence of 
+dementia are also present in the synthetic images as well. While not as pronounced, the areas of atrophy in the 
+synthetic brain image are present and our model focuses on those areas in both real and synthetic images.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Real]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/ModerateDementedRealGradcam_predictNonDemented.jpg}\label{fig:f1}}
+    \hspace{0.001\textwidth}
+    \subfloat[Synthetic]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/ModerateDementedSyntheticGradcam_predictNonDemented.jpg}\label{fig:f2}}
+    \caption{Grad-CAM, Predicting: ModerateDemented}
+\end{figure}
+The same image, shows that the areas of non-atrophy, particularly those closer to the brain stem, contribute to a 
+likelihood that this image would be classified as non-demented. The associated synthetic image shows similar patterns.
+
+
+
+\subsection{Real vs synthetic images labeled as having no dementia}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Real]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/NonDementedRealGradcam_predictModerateDemented.jpg}\label{fig:f1}}
+    \hspace{0.001\textwidth}
+    \subfloat[Synthetic]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/NonDementedSyntheticGradcam_predictModerateDemented.jpg}\label{fig:f2}}
+    \caption{Grad-CAM, Predicting: ModerateDemented}
+\end{figure}
+
+When comparing real and synthetic images of a brain with no signs of dementia, we see that our synthetic image captures
+the areas of non-atrophy that is present in the original source image. 
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Real]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/NonDementedRealGradcam_predictNonDemented.jpg}\label{fig:f1}}
+    \hspace{0.001\textwidth}
+    \subfloat[Synthetic]{\includegraphics[width=0.45\textwidth]{figures/gradcam_images/NonDementedSyntheticGradcam_predictNonDemented.jpg}\label{fig:f2}}
+    \caption{Grad-CAM, Predicting: ModerateDemented}
+\end{figure}
+
+There does not appear to be as signficant of atrophy present in an image of a non-demented brain---which our synthetic 
+image has adequately captured. Both real and synthetic images show larger non-atrophied areas of the brain, which our 
+model is focusing on as an indication of a brain without dementia.
 
 \chapter{Background on Training Deep Learning Models}
 

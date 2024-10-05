@@ -5,23 +5,25 @@
 \contentsline {chapter}{\numberline {3}Exploration using Grad-CAM}{5}{}%
 \contentsline {section}{\numberline {3.1}Overview of Grad-CAM}{5}{}%
 \contentsline {section}{\numberline {3.2}Exploratory Results}{6}{}%
-\contentsline {chapter}{\numberline {4}Background on Training Deep Learning Models}{7}{}%
-\contentsline {section}{\numberline {4.1}Overview of Neural Networks}{7}{}%
-\contentsline {section}{\numberline {4.2}Loss Function}{8}{}%
-\contentsline {section}{\numberline {4.3}Gradient Descent}{10}{}%
-\contentsline {subsection}{\numberline {4.3.1}Learning Rate}{10}{}%
-\contentsline {subsection}{\numberline {4.3.2}Momentum}{11}{}%
-\contentsline {subsection}{\numberline {4.3.3}Adam Optimizer}{12}{}%
-\contentsline {section}{\numberline {4.4}Fine-tuning Pre-trained Models}{12}{}%
-\contentsline {chapter}{\numberline {5}Overview of Model Architectures}{14}{}%
-\contentsline {section}{\numberline {5.1}Convolutional Neural Networks}{14}{}%
-\contentsline {section}{\numberline {5.2}ResNet-18}{16}{}%
-\contentsline {section}{\numberline {5.3}Vision Transformers}{18}{}%
-\contentsline {chapter}{\numberline {6}Overview of Image Augmentation Techniques}{19}{}%
-\contentsline {section}{\numberline {6.1}Basic Image Augmentation}{19}{}%
-\contentsline {section}{\numberline {6.2}AutoAugment}{19}{}%
-\contentsline {section}{\numberline {6.3}Synthetic Image Generation Policy}{19}{}%
-\contentsline {chapter}{\numberline {7}Results}{21}{}%
-\contentsline {section}{\numberline {7.1}CNN Results}{21}{}%
-\contentsline {chapter}{\numberline {8}Conclusion}{24}{}%
-\contentsline {chapter}{\numberline {9}Additional Considerations}{25}{}%
+\contentsline {subsection}{\numberline {3.2.1}Real vs synthetic images labeled as having moderate dementia}{7}{}%
+\contentsline {subsection}{\numberline {3.2.2}Real vs synthetic images labeled as having no dementia}{8}{}%
+\contentsline {chapter}{\numberline {4}Background on Training Deep Learning Models}{10}{}%
+\contentsline {section}{\numberline {4.1}Overview of Neural Networks}{10}{}%
+\contentsline {section}{\numberline {4.2}Loss Function}{11}{}%
+\contentsline {section}{\numberline {4.3}Gradient Descent}{13}{}%
+\contentsline {subsection}{\numberline {4.3.1}Learning Rate}{13}{}%
+\contentsline {subsection}{\numberline {4.3.2}Momentum}{14}{}%
+\contentsline {subsection}{\numberline {4.3.3}Adam Optimizer}{15}{}%
+\contentsline {section}{\numberline {4.4}Fine-tuning Pre-trained Models}{15}{}%
+\contentsline {chapter}{\numberline {5}Overview of Model Architectures}{17}{}%
+\contentsline {section}{\numberline {5.1}Convolutional Neural Networks}{17}{}%
+\contentsline {section}{\numberline {5.2}ResNet-18}{19}{}%
+\contentsline {section}{\numberline {5.3}Vision Transformers}{21}{}%
+\contentsline {chapter}{\numberline {6}Overview of Image Augmentation Techniques}{22}{}%
+\contentsline {section}{\numberline {6.1}Basic Image Augmentation}{22}{}%
+\contentsline {section}{\numberline {6.2}AutoAugment}{22}{}%
+\contentsline {section}{\numberline {6.3}Synthetic Image Generation Policy}{22}{}%
+\contentsline {chapter}{\numberline {7}Results}{24}{}%
+\contentsline {section}{\numberline {7.1}CNN Results}{24}{}%
+\contentsline {chapter}{\numberline {8}Conclusion}{27}{}%
+\contentsline {chapter}{\numberline {9}Additional Considerations}{28}{}%
