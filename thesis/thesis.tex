@@ -497,10 +497,34 @@ The figure above illustrates one iteration of our image generation policy in ord
     well as to bootstrap a distribution of performance--measured by cross entropy loss
 \end{enumerate}
 
-
 \chapter{Results}
 
-\section{CNN Results}
+\section{Methodology}
+To test the effects that synthetic images have on image classifcation performance, we tested different combinations of 
+model architectures paired with image augmentation techniques. Our models were also trained on different ratios of real 
+and synthetic images in order to observe how synthetic images affect performance. Each combination is trained 20 times 
+on independent samples and reported results are based on the median from all training runs. All combinations tested are
+listed below:
+
+
+
+\section{Basic CNN Results}
+
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+    \hline
+    \multicolumn{4}{|c|}{Basic CNN Results} \\
+    \hline
+     & No Augment & Random Horizontal Augment & AutoAugment\\
+    \hline
+    100\% Real / 0\% Synthetic  & ... & ... & ...\\
+    80\% Real / 20\% Synthetic  & ... & ... & ...\\
+    100\% Real / 20\% Synthetic (ModerateDemented Only)  & ... & ... & ...\\
+    
+    \hline
+\end{tabular}
+\end{center}
+
 When applied to a basic convolutional neural network, augmentation via synthetic images provides the most benefit when 
 the dataset of original images is limited. When training our CNN on a 30\% stratified sample, the median validation loss 
 from 100 simulations was 0.219863, compared to a loss of 0.176023 when training on the full dataset---resulting in an 
