@@ -25,6 +25,6 @@
 \contentsline {section}{\numberline {6.3}Synthetic Image Generation Policy}{22}{}%
 \contentsline {chapter}{\numberline {7}Results}{24}{}%
 \contentsline {section}{\numberline {7.1}Methodology}{24}{}%
-\contentsline {section}{\numberline {7.2}Basic CNN Results}{25}{}%
+\contentsline {section}{\numberline {7.2}Basic CNN Results}{24}{}%
 \contentsline {chapter}{\numberline {8}Conclusion}{28}{}%
 \contentsline {chapter}{\numberline {9}Additional Considerations}{29}{}%
