@@ -466,9 +466,33 @@ The last type of model architecture tested is one that foregoes the use of convo
 vision transformers utilize the attention mechanism to capture spatial relationships and abstract features.
 
 \chapter{Overview of Image Augmentation Techniques}
-In addition to different model architectures, we also tested different image segmentation policies. First, we apply 
-traditional image augmentation techniques---testing training pipelines that involve no image augmentation policy, a 
-basic image augmentation policy, or an auto-augmentation policy. Then, we test 
+In addition to different model architectures, we also test combinations of different traditional image augmentation 
+policies and image augmentation via synthetic images. See below for all image augmentation pairings tested:
+
+
+\begin{multicols}{2}
+    Grandes nacelles :
+    \begin{itemize}
+        \item Nacelle A318 PW
+        \item Inverseur A320 CFM
+        \item Inverseur A340 CFM
+        \item Nacelle A340 TRENT
+        \item Inverseur A330 TRENT
+        \item Nacelles A380 TRENT900
+        \item Nacelles A380 GP7200
+    \end{itemize}
+    
+    \columnbreak
+    
+    Petites nacelles :
+    \begin{itemize}
+        \item Nacelle SAAB2000
+        \item Inverseur DC8
+        \item Inverseur CF34-8
+        \item Inverseur BR710
+        \item Nacelle F7X
+    \end{itemize}
+\end{multicols}
 
 \section{Basic Image Augmentation}
 
@@ -500,15 +524,11 @@ The figure above illustrates one iteration of our image generation policy in ord
 \chapter{Results}
 
 \section{Methodology}
-To test the effects that synthetic images have on image classifcation performance, we tested a variety of model 
-architectures paired with differing image augmentation protocols. Protocols that involve synthetic images also we 
-
-
-Our models were also trained on different ratios of real 
-and synthetic images in order to observe how synthetic images affect performance. In combinations scenarios that involve 
-synthetic images, we tested protocols that   Each combination is trained 20 times 
-on independent samples and reported results are based on the median from all training runs. All combinations tested are
-listed below:
+To test the effects that synthetic images have on image classification performance, we tested a variety of model 
+architectures paired with differing image augmentation protocols. We also tested protocols that involved synthetic 
+image augmentation for all classes in our original dataset and ones that involve augmentation for select classes only. 
+Each combination is trained 20 times on independent samples and reported results are based on the median from all 
+training runs.
 
 \section{Basic CNN Results}
 
