@@ -30,6 +30,7 @@
 \usepackage{amsfonts}
 \usepackage{array, makecell}
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage{float}
 \usepackage{wrapfig,lipsum}
 \renewcommand\cellset{\renewcommand\arraystretch{0.8}%
@@ -354,7 +355,7 @@ use the Adam optimizer.
 Often times, computer vision models require a large number of images as well as a significant amount of computation 
 time. In order to accelerate the training process, many image classification models will utilize a pre-trained model, 
 instead of starting training from randomly initialized weights and biases. The most common image dataset used to 
-pretrain models is the ImageNet-1000 dataset, which is comprised of 1000 distinct classes, 1,281,167 training images, 
+pre-train models is the ImageNet-1000 dataset, which is comprised of 1000 distinct classes, 1,281,167 training images, 
 50,000 validation images and 100,000 test images.
 
 Once a model is pre-trained, fine-tuning can take two forms---either progressing through training as you normally would
@@ -366,7 +367,7 @@ image. For the purposes of our paper, all pre-trained models are fine-tuned by r
 \chapter{Overview of Model Architectures}
 In order to gain an understanding as to how both convolution-based and attention-based architectures react to the 
 introduction to synthetic data in training, We tested three different deep learning model architectures for our image 
-classification models---a basic Convolutional Neural Network (CNN), a pretrained ResNet-18 model, and a pretrained 
+classification models---a basic Convolutional Neural Network (CNN), a pre-trained ResNet-18 model, and a pre-trained 
 Vision Transformer (ViT).
 
 \section{Convolutional Neural Networks}
@@ -469,34 +470,61 @@ vision transformers utilize the attention mechanism to capture spatial relations
 In addition to different model architectures, we also test combinations of different traditional image augmentation 
 policies and image augmentation via synthetic images. See below for all image augmentation pairings tested:
 
-
 \begin{multicols}{2}
-    Grandes nacelles :
+    \raggedcolumns
+    \textbf{Image Augmentation Policies}
     \begin{itemize}
-        \item Nacelle A318 PW
-        \item Inverseur A320 CFM
-        \item Inverseur A340 CFM
-        \item Nacelle A340 TRENT
-        \item Inverseur A330 TRENT
-        \item Nacelles A380 TRENT900
-        \item Nacelles A380 GP7200
+        \item Random horizontal flipping
+        \item AutoAugment policy
+        \item No image augmentation
     \end{itemize}
     
     \columnbreak
     
-    Petites nacelles :
+    \textbf{Synthetic Image Policies}
     \begin{itemize}
-        \item Nacelle SAAB2000
-        \item Inverseur DC8
-        \item Inverseur CF34-8
-        \item Inverseur BR710
-        \item Nacelle F7X
+        \item Synthetic image generation via Dall-E-2
+        \item No synthetic image augmentation
     \end{itemize}
 \end{multicols}
 
-\section{Basic Image Augmentation}
+\section{Rudimentary Image Augmentation}
+Image augmentation in its simplest basic form is a policy that consists of basic image transformations, such as flipping
+an image on its horizontal or vertical axis. Often, this image augmentation is applied randomly based on a probability 
+defined prior to training. Because rudimentary image augmentation is cost effective and can result in improved 
+performance for a image classification model with relatively low computational cost, it is frequently used to augment 
+limited datasets are difficult or expensive to collect and/or label.
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/basic-image-augmentation-example.png}
+    \caption{basic image augmentation examples}
+    \label{fig:basic image augmentation examples}
+\end{figure}
+
+For the purposes of this paper, the basic image augmentation policy applies a horizontal flip randomly with a 
+probability of 50\%. Other image transformations, such as cropping or adjusting the color saturation, were not tested 
+due to the nature or our training images. The MRI dataset is in grayscale and intended to capture the entirety of the 
+brain and therefore cropping or changing the color of the image in any way did not fit our particular use case. 
 
 \section{AutoAugment}
+AutoAugment is an image augmentation policy that was developed by researchers at Google. It takes existing augmentation 
+procedures, such as the ones listed in the previous section, and automates the selection of which procedures to include,
+in order to select the optimal transformations in order to improve the model performance. The result is a systemic 
+augmentation policy that eliminates the need for manual tuning. 
+
+The AutoAugment policy works by employing a reinforcement learning framework in order to find optimal policies. Using a 
+neural network designated as the controller, the AutoAugment policy explores a defined search space of possible 
+transformations---with each transformation having a probability of being applied and a magnitude of the transformation.
+The controller then tests augmentation policies within the search space in order to train a model. The model's 
+subsequent performance is measured against a validation dataset and is used to further optimize the image augmentation 
+policy. This feedback loop continues until controller has found an optimal augmentation policy.
+
+AutoAugment is more computationally expensive than a basic image augmentation policy, as it involves training the 
+controller neural network before it can be used in the training of the actual model itself, which can be an entirely 
+separate deep learning model. To address this, AutoAugment policies can be pre-trained on larger datasets---which are 
+then generalized to other images. In this paper, we tested an AutoAugment policy pre-trained on the popular and widely 
+available IMAGENET dataset.
 
 \section{Synthetic Image Generation Policy}
 Given a desired proportion of original training images to utilize (\textit{X}) and the desired proportion of synthetic 

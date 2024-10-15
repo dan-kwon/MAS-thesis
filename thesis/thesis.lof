@@ -17,9 +17,10 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Basic CNN Architecture\relax }}{19}{}%
 \contentsline {figure}{\numberline {5.5}{\ignorespaces ResNet-18 Architecture\relax }}{20}{}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Enter Caption\relax }}{23}{}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces basic image augmentation examples\relax }}{23}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Enter Caption\relax }}{24}{}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic\relax }}{26}{}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Comparison of resulting cross entropy loss across models using different image augmentation policies, all trained on 30\% of available images\relax }}{27}{}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic\relax }}{28}{}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Comparison of resulting cross entropy loss across models using different image augmentation policies, all trained on 30\% of available images\relax }}{29}{}%
 \addvspace {10pt}
 \addvspace {10pt}
