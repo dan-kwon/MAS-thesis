@@ -527,91 +527,60 @@ then generalized to other images. In this paper, we tested an AutoAugment policy
 available IMAGENET dataset.
 
 \section{Synthetic Image Generation Policy}
-Given a desired proportion of original training images to utilize (\textit{X}) and the desired proportion of synthetic 
-images to augment the training data (\textit{Y}), we combine both synthetic and original images to train our image 
-classification model. 
+The proposed image augmentation policy via synthetic image generation exists as a step that exists prior to any 
+traditional image augmentation steps, generating synthetic images that are passed along to the subsequent image 
+transformations that exist downstream. Given a proportion of original training images to utilize for label \(i\)---
+denoted as \(X_{i}\)---and the desired proportion of synthetic images to augment the training data for label \(i\)---
+denoted as \(Y_{i}\)---we combine both synthetic and original images in order to create a mixed train dataset used to 
+train the image classification model. In practice, \(X_{i}\) would almost always be 100\% as you generally want to train
+on available data you have; however, we test different values of \(X_{i}\) in order to test the efficacy of our image 
+generation policy across a range of possible dataset sizes.
 
-\begin{figure} [h]
+
+\begin{figure} [H]
     \centering
     \includegraphics[width=1\linewidth]{figures/image_generation_policy.jpg}
-    \caption{Enter Caption}
+    \caption{Illustration of the image generation policy}
     \label{fig:enter-label}
 \end{figure}
 
-The figure above illustrates one iteration of our image generation policy in order to generate our mixed training set 
-(i.e., containing both original and synthetic images)
+The figure above illustrates our image generation policy in order to generate our mixed training set (i.e., containing 
+both original and synthetic images)
 \begin{enumerate}
-    \item First, we take a random stratified sample of our original images
-    \item The stratified sample is sent to Dall-E 2 via OpenAI's API in order to generate an image variation
+    \item First, we take a random sample of our original images
+    \item The sample is sent to Dall-E 2 via OpenAI's API in order to generate an image variation
     \item Image transformations are applied to our entire mixed training set (if applicable)
     \item Mixed training set, post transformations/augmentation, is used to train the image classification model
-    \item Steps 1-4 are repeated \textit{N} times in order to account for the stochastic nature of Dall-E's responses as 
-    well as to bootstrap a distribution of performance--measured by cross entropy loss
 \end{enumerate}
 
 \chapter{Results}
-
-\section{Methodology}
 To test the effects that synthetic images have on image classification performance, we tested a variety of model 
 architectures paired with differing image augmentation protocols. We also tested protocols that involved synthetic 
 image augmentation for all classes in our original dataset and ones that involve augmentation for select classes only. 
-Each combination is trained 20 times on independent samples and reported results are based on the median from all 
-training runs.
+Each combination is trained 20 times on independent samples in order to get a distribution of results and reported 
+results are based on the median of the distribution of measured performances.
 
 \section{Basic CNN Results}
 
 \begin{center}
-\begin{tabular}{ |p{4cm}||p{4cm}|p{4cm}|p{4cm}|  }
+    \scriptsize
+    {\renewcommand{\arraystretch}{2}%
+\begin{tabular}{ |p{5cm}||p{3.5cm}|p{3.5cm}|p{3.5cm}|  }
     \hline
     \multicolumn{4}{|c|}{Basic CNN Results} \\
     \hline
-     & No Augment & Random Horizontal Augment & AutoAugment\\
+     & \makecell{No \\ Augmentation} & \makecell{Random Horizontal \\ Augment} & \makecell{AutoAugment} \\
     \hline
-    100\% Real / 0\% Synthetic  & ... & ... & ...\\
-    80\% Real / 20\% Synthetic  & ... & ... & ...\\
-    100\% Real / 20\% Synthetic (ModerateDemented Only)  & ... & ... & ...\\
-    
+    \makecell{100\% Real / 0\% Synthetic}  & ... & ... & ...\\
+    \makecell{80\% Real / 20\% Synthetic}  & ... & ... & ...\\
+    \makecell{80\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & ... & ... & ...\\
+    \makecell{80\% Real / 20\% Synthetic \\ (Moderate Demented Only) \\}  & ... & ... & ...\\
+    \makecell{100\% Real / 20\% Synthetic \\ (Moderate Demented Only) \\}  & ... & ... & ...\\
+    \makecell{100\% Real / 20\% Synthetic \\ (Moderate Demented Only) \\}  & ... & ... & ...\\
     \hline
-\end{tabular}
+\end{tabular}} \quad
 \end{center}
 
-When applied to a basic convolutional neural network, augmentation via synthetic images provides the most benefit when 
-the dataset of original images is limited. When training our CNN on a 30\% stratified sample, the median validation loss 
-from 100 simulations was 0.219863, compared to a loss of 0.176023 when training on the full dataset---resulting in an 
-increase in our loss by approximately 25\%.
-
-However, model performance improves when augmenting the 30\% stratified training sample with synthetic images so that 
-the resulting training set contains the same number of images as the full training data set. The resulting model trained 
-on the mix of 30\% real and 70\% synthetic images has a cross-entropy loss of 0.174202---a decrease of over 20\% 
-compared to the model trained on only the 30\% of real training images and matching the performance of model trained on 
-the entirety of the training images.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{figures/cnn_minimal30_result.png}
-    \caption{Cross Entropy Loss - Model trained on 30\% Real, 70\% synthetic}
-    \label{fig:enter-label}
-\end{figure}
-
-Moreover, CNNs trained on synthetic data outperformed CNNs trained on 30\% of available training images and paired with 
-traditional image augmentation policies. This is likely due to the fact that the image augmentation policies may alter 
-the nature of the image enough to degrade performance of our classification model. This is not to say that traditional 
-image augmentation methods do not have a role in medical imaging; only that traditional image segmentation policies, 
-when misapplied, can degrade model performance significantly and therefore likely require subject matter experts to 
-evaluate whether image augmentation is necessary. In fact, other studies have found that image augmentation generally 
-improves the performance of image classification models used for brain imaging. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{figures/image_augmentation_comparison.png}
-    \caption{Comparison of resulting cross entropy loss across models using different image augmentation policies, all 
-    trained on 30\% of available images}
-    \label{fig:enter-label}
-\end{figure}
-However, not all training datasets benefit from synthetic image augmentation. CNNs trained on 40-80\% of all available 
-training data resulted in virtually no improvement, with the 80\% model resulting in a degradation in loss. This alludes 
-to the possibility that synthetic data augmentation may be more beneficial as original training data becomes more 
-constrained.
 
 \chapter{Conclusion}
 
