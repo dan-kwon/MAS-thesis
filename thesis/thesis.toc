@@ -25,5 +25,7 @@
 \contentsline {section}{\numberline {6.3}Synthetic Image Generation Policy}{24}{}%
 \contentsline {chapter}{\numberline {7}Results}{26}{}%
 \contentsline {section}{\numberline {7.1}Basic CNN Results}{26}{}%
-\contentsline {chapter}{\numberline {8}Conclusion}{27}{}%
-\contentsline {chapter}{\numberline {9}Additional Considerations}{28}{}%
+\contentsline {section}{\numberline {7.2}ResNet Results}{27}{}%
+\contentsline {section}{\numberline {7.3}ViT Results}{28}{}%
+\contentsline {chapter}{\numberline {8}Conclusion}{29}{}%
+\contentsline {chapter}{\numberline {9}Additional Considerations}{30}{}%

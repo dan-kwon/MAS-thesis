@@ -565,22 +565,86 @@ results are based on the median of the distribution of measured performances.
 \begin{center}
     \scriptsize
     {\renewcommand{\arraystretch}{2}%
-\begin{tabular}{ |p{5cm}||p{3.5cm}|p{3.5cm}|p{3.5cm}|  }
+\begin{tabular}{ |p{0.5cm}|p{5cm}|p{3cm}|p{3cm}|p{3cm}|  }
     \hline
-    \multicolumn{4}{|c|}{Basic CNN Results} \\
+    \multicolumn{5}{|c|}{Cross Entropy Loss} \\
     \hline
-     & \makecell{No \\ Augmentation} & \makecell{Random Horizontal \\ Augment} & \makecell{AutoAugment} \\
+    \multicolumn{2}{|c|}{Scenario} & \makecell{No \\ Augmentation} & \makecell{Random Horizontal \\ Augment} & \makecell{AutoAugment} \\
     \hline
-    \makecell{100\% Real / 0\% Synthetic}  & 0.113512 & 0.173663 & 0.15266 \\
-    \makecell{80\% Real / 0\% Synthetic}  & 0.23912 & 0.270616 & 0.274309 \\
-    \makecell{100\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & 0.103296 & 0.169054 & 0.137484 \\
-    \makecell{80\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & 0.213611 & 0.247438 & 0.242083 \\
+    \makecell{1} & \makecell{100\% Real / 0\% Synthetic} & \makecell{0.113512} & \makecell{0.173663} & \makecell{0.15266} \\
+    \makecell{2} & \makecell{80\% Real / 0\% Synthetic} & \makecell{0.23912} & \makecell{0.270616} & \makecell{0.274309} \\
+    \makecell{3} & \makecell{100\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & \makecell{0.103296} & \makecell{0.169054} & \makecell{0.137484} \\
+    \makecell{4} & \makecell{80\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & \makecell{0.213611} & \makecell{0.247438} & \makecell{0.242083} \\
+    \hline
+\end{tabular}} \quad
+\end{center}
+
+The basic image augmentation and AutoAugment protocols resulted in a slight degradation of model performance across all 
+training scenarios, illustrating that simply applying image augmentation is not always recommended when training image 
+classification models.
+
+Similarly, synthetic image augmentation applied equally across all image classes results in a slight increase in cross 
+entropy loss. This is likely due to Dall-E-2 struggling to produce non-demented images with sufficient fidelity.
+
+However, models trained on datasets with image augmentation applied to only the 2 most demented image classes (labeled 
+as mildly and moderately demented) performed better than those trained on synthetic images alone. Comparing scenarios 1 
+and 3, synthetic image augmentation to specific classes resulted in a 9.0\% decrease in cross entropy loss when paired 
+with the best performing traditional image augmentation protocol (no augmentation), reducing loss from from 11.4\% to 
+10.3\%. This holds true for scenarios 2 and 4 as well, which trained models on 80\% of the available real training 
+images. The introduction of synthetic images reduced error by 10.7\%, from 23.9\% to 21.4\%.
+
+\section{ResNet Results}
+
+\begin{center}
+    \scriptsize
+    {\renewcommand{\arraystretch}{2}%
+\begin{tabular}{ |p{0.5cm}|p{5cm}|p{3cm}|p{3cm}|p{3cm}|  }
+    \hline
+    \multicolumn{5}{|c|}{Cross Entropy Loss} \\
+    \hline
+    \multicolumn{2}{|c|}{Scenario} & \makecell{No \\ Augmentation} & \makecell{Random Horizontal \\ Augment} & \makecell{AutoAugment} \\
+    \hline
+    \makecell{1} & \makecell{100\% Real / 0\% Synthetic} & \makecell{0.126419} & \makecell{0.216701} & \makecell{0.954748} \\
+    \makecell{2} & \makecell{80\% Real / 0\% Synthetic} & \makecell{...} & \makecell{...} & \makecell{...} \\
+    \makecell{3} & \makecell{100\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & \makecell{0.119202} & \makecell{0.175533} & \makecell{0.592514} \\
+    \makecell{4} & \makecell{80\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & \makecell{0.209497} & \makecell{0.259539} & \makecell{0.785979} \\
+    \hline
+\end{tabular}} \quad
+\end{center}
+
+ResNet models reacted similarly to our basic CNN architectures, with our findings from the ResNet model training 
+scenarios mirroring our CNN results. 
+
+\section{ViT Results}
+
+\begin{center}
+    \scriptsize
+    {\renewcommand{\arraystretch}{2}%
+\begin{tabular}{ |p{0.5cm}|p{5cm}|p{3cm}|p{3cm}|p{3cm}|  }
+    \hline
+    \multicolumn{5}{|c|}{Cross Entropy Loss} \\
+    \hline
+    \multicolumn{2}{|c|}{Scenario} & \makecell{No \\ Augmentation} & \makecell{Random Horizontal \\ Augment} & \makecell{AutoAugment} \\
+    \hline
+    \makecell{1} & \makecell{100\% Real / 0\% Synthetic} & \makecell{...} & \makecell{...} & \makecell{...} \\
+    \makecell{2} & \makecell{80\% Real / 0\% Synthetic} & \makecell{...} & \makecell{...} & \makecell{...} \\
+    \makecell{3} & \makecell{100\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & \makecell{...} & \makecell{...} & \makecell{...} \\
+    \makecell{4} & \makecell{80\% Real / 20\% Synthetic \\ (Mild \& Moderate Demented Only) \\}  & \makecell{...} & \makecell{...} & \makecell{...} \\
     \hline
 \end{tabular}} \quad
 \end{center}
 
 
+
 \chapter{Conclusion}
+
+While augmenting with synthetic images were not sufficient to make up for the loss of real training images entirely, 
+they were improvements to model performance when compared to simply training on real images alone.
+
+Traditional image augmentation policies do not always result in improvements to model performance, as exhibited in our 
+training scenarios. In fact, for our use case these policies significantly degraded performance. Still, synthetic images
+resulted in incremental model performance improvements when paired with any of the traditional image augmentation 
+policies tested.
 
 \chapter{Additional Considerations}
 
