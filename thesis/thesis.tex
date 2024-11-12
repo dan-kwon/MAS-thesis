@@ -463,16 +463,26 @@ maintaining the ability to extract features, either through its traditional conv
 block. 
 
 \section{Vision Transformers}
+
 The last type of model architecture tested---known as vision transformers or ViT for short---is one that foregoes the 
 use of convolutional layers entirely and instead utilizes the attention mechanism to capture spatial relationships and 
-abstract features. The transformer architecture is often utilized in natural language processing tasks and serves as the 
+abstract features. 
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/ViT Architecture.png}
+    \caption{ViT Architecture}
+    \label{fig:ViT Architecture}
+\end{figure}
+
+The transformer architecture is often utilized in natural language processing tasks and serves as the 
 architectural foundation for cutting edge large language models such as ChatGPT, Llama, Gemini, and Claude. 
 
 Because applying transformers for the purpose of image classification closely parallels how they are employed for text
 generation, each transformer component reviewed in this section will be accompanied with an analogous example of how the
 component would work in a text transformer whenever possible.
 
-\subsection{Embeddings}
+\subsection{Background on Embeddings}
 Before any data can be used as an input into a transformer, it must first be turned into a numeric representation so 
 that the appropriate operations can be performed on it. For example, if an embedding has three dimensions you can 
 imagine the embeddings for words such as "jump" and "leap" to have high cosine similarity, even if they are different 
@@ -488,22 +498,49 @@ words.
 In practice, embeddings can be tens of thousands of dimensions. It is also worth noting that these embeddings are not 
 static representations but trainable parameters that can be modified and adjusted as the transformer trains. 
 
+\subsection{Patch Embeddings and Positional Encoding}
 In a ViT, rather than words (or tokens) being transformed into embeddings, the image is broken up into a series of 16x16
-images and flattened into a 256 dimensional vector. Each vector is then multiplied by an embedding matrix to get the 
-patch embedding. The patch embedding is then concatenated to a positional embedding that represents the relative 
-position of the original image that the image patch is sourced from. 
+images and flattened into a 256 dimensional vector. An original image that is \(x \in \mathbb{R}^{H \times W \times C}\)
+is therefore split into patches that are  \(\mathbb{R}^{P^2 \times C}\). Therefore across \(N\) patches, we have matrix
+\(x_p \in \mathbb{R}^{N \times (P^2 \cdot C)}\).
+
+Where:
+\begin{itemize}
+    \item \(H\) and \(W\) is the height and width of the original image
+    \item \(C\) is the number of channels in the original image
+    \item \(P\) is the dimension of the \(P \times P\) patch
+    \item \(N = HW/P^2\) is used to calculate the needed number of patches, given a \(P \times P\) patch size
+\end{itemize}
+
+
+\(x_p\) is then unrolled to a vector and multiplied by an embedding matrix \(E\) to get the patch embedding. 
+
+\[z_i = x_p \cdot E\]
+
+Where:
+\begin{itemize}
+    \item \(E \in \mathbb{R}^{(P^2 \cdot C) \times D}\) is a projection matrix with learnable weights
+    \item \(x_p\) is a given image patch, unrolled into vector form
+\end{itemize}
+
+The patch embedding is then combined with the positional encoding by summing it with the patch embedding in order to 
+give the transformer the ability to track where each image patch is relative to the original image. The positional 
+embedding represents the relative position of the original image that the image patch is sourced from. The resulting 
+patch embedding and position encoding are then fed into a transformer architecture similar to how a string of token 
+embeddings are fed into a traditional transformer used for natural language processing.
+
+\subsection{Transformer Architecture}
+The transformer encoder in a ViT consists of alternating layers of multi-headed self attention and MLP blocks, with 
+layer normalization applied before every block and residual blocks after every block.
 
 \begin{figure} [H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/ViT Architecture.png}
-    \caption{ViT Architecture}
-    \label{fig:ViT Architecture}
+    \includegraphics[width=0.2\linewidth]{figures/ViT Encoder Architecture.png}
+    \caption{ViT Encoder Architecture}
+    \label{fig:ViT Encoder Architecture}
 \end{figure}
 
-The resulting patch and position embeddings are then fed into a transformer architecture that does not differ 
-significantly from a traditional transformer used for text embeddings.
 
-\subsection{Attention Layer}
 
 \chapter{Overview of Image Augmentation Techniques}
 In addition to different model architectures, we also test combinations of different traditional image augmentation 

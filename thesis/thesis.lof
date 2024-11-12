@@ -16,11 +16,12 @@
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Illustration of 2x2 Max Pooling\relax }}{18}{}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Basic CNN Architecture\relax }}{19}{}%
 \contentsline {figure}{\numberline {5.5}{\ignorespaces ResNet-18 Architecture\relax }}{20}{}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Hypothetic 3-dimensional word embeddings\relax }}{22}{}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces ViT Architecture\relax }}{23}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces ViT Architecture\relax }}{21}{}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Hypothetic 3-dimensional word embeddings\relax }}{22}{}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces ViT Encoder Architecture\relax }}{24}{}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces basic image augmentation examples\relax }}{25}{}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Illustration of the image generation policy\relax }}{27}{}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces basic image augmentation examples\relax }}{26}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Illustration of the image generation policy\relax }}{28}{}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
