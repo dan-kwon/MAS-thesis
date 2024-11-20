@@ -1,4 +1,4 @@
-\documentclass [MS] {uclathes}
+\documentclass [MAS] {uclathes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                      %
@@ -540,12 +540,36 @@ layer normalization applied before every block and residual blocks after every b
     \label{fig:ViT Encoder Architecture}
 \end{figure}
 
-Transformers are notable for their usage of the attention blocks, which combine query (\(Q\)), key (\(K\)), and value 
-(\(V\)) matrices in order to create 
+The ViT architecture is notable for its usage of the multi-head attention block, which combine query (\(Q\)), key 
+(\(K\)), and value (\(V\)) matrices in order to allow the model to "pay attention" to certain patches. 
+
+\[Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V\]
+
+Where:
+\begin{itemize}
+    \item \(Q\), \(K\), and \(V\) are the query, key, and value matrices, respectively
+    \item \(d_k\) is the dimensions of the key vectors, such that dividing by \(\sqrt{d_k}\) ensures that the variance 
+    of \(q \cdot k\) is 1
+\end{itemize}
+
+In order to pay attention to different image patches under different contexts the ViT architecture uses multi-head 
+attention, which allows for multiple attention mechanisms in parallel. 
+
+\[MultiHead(Q,K,V) = [head_1, head_2, ... , head_h]W_0\]
+
+Where:
+\begin{itemize}
+    \item \(head_i = Attention(QW_i^Q, KW_i^K, VW_i^V)\)
+    \item \(W\) are all learnable parameter matrices
+\end{itemize}
+
+Intuitively, multi-head attention allows the ViT model to pay attention to different parts of the image for different 
+contexts. For example, certain characteristics of an image may warrant more attention when defining segment boundaries, 
+while those same characteristics may not warrant attention when considering segment orientation.
 
 \chapter{Overview of Image Augmentation Techniques}
 In addition to different model architectures, we also test combinations of different traditional image augmentation 
-policies and image augmentation via synthetic images. See below for all image augmentation pairings tested:
+policies and image augmentation via synthetic images. See below for all image augmentation pairings tested \cite{AUG}:
 
 \begin{multicols}{2}
     \raggedcolumns
@@ -630,12 +654,27 @@ both original and synthetic images)
     \item Mixed training set, post transformations/augmentation, is used to train the image classification model
 \end{enumerate}
 
-\chapter{Results}
+\chapter{Methodology and Results}
+
+\section{Methodology}
 To test the effects that synthetic images have on image classification performance, we tested a variety of model 
 architectures paired with differing image augmentation protocols. We also tested protocols that involved synthetic 
 image augmentation for all classes in our original dataset and ones that involve augmentation for select classes only. 
 Each combination is trained 20 times on independent samples in order to get a distribution of results and reported 
 results are based on the median of the distribution of measured performances.
+
+Scenarios tested were:
+\begin{itemize}
+    \item Training on 100\% of available training data
+    \item Training on 100\% of available training data and an additional 20\% consisting of synthetic images
+    \item Training on 80\% of available training data
+    \item Training on 80\% of available training data and an additional 20\% consisting of synthetic images
+    images
+\end{itemize}
+
+To avoid overfitting our models, after each training epoch the performance of the model is tested against a validation 
+data set that is held out. If the model fails to improve (i.e., reduce the loss function) against the validation data 
+set for 2 consecutive epochs, that particular training run is ended and the model performance is logged.
 
 \section{Basic CNN Results}
 
@@ -724,5 +763,9 @@ resulted in incremental model performance improvements when paired with any of t
 policies tested.
 
 \chapter{Additional Considerations}
+
+\bibliography{bib/bibliography.bib}    % bibliography references
+
+\bibliographystyle{uclathes}
 
 \end {document}

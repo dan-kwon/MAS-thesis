@@ -1,0 +1,11 @@
+\begin{thebibliography}{AI24}
+
+\bibitem[AI24]{AUG}
+Albumentations AI.
+\newblock ``What is image augmentation and how it can improve the performance
+  of deep neural networks.'', 2024.
+\newblock
+  \texttt{https://albumentations.ai/docs/introduction/image/_augmentation/}
+  (Last Accessed: 2023-03-20).
+
+\end{thebibliography}
