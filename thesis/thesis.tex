@@ -732,7 +732,7 @@ ResNet models reacted to synthetic images similarly to our basic CNN architectur
 training scenarios aligning directionally with the results found when using the CNN architecture. Comparing scenarios 1 
 and 3, synthetic image augmentation to specific classes resulted in a 5.7\% decrease in cross entropy loss when paired 
 with the best performing traditional image augmentation protocol (no augmentation), reducing loss from from 12.6\% to 
-11.9\%. The same if true for scenarios 2 and 4 with synthetic images reducing error by XX.X\%, from XX.X\% to XX.X\%.
+11.9\%. The same is true for scenarios 2 and 4 with synthetic images reducing error by XX.X\%, from XX.X\% to XX.X\%.
 
 \newpage
 \section{ViT Results}
@@ -783,20 +783,20 @@ image augmentation methods. However, due to its limited scope, there are a few a
 noted.
 
 While this paper tests a variety of model architectures, the purpose was to observe how synthetic image augmentation 
-interacts with both a convolutional architecture and an attention-based architecture. Model hyperparameter tuning was 
-not taken into account, and model parameters such as learning rate, batch size, and the number of layers were not 
-adjusted. As a result, a model's performance should only be compared against other models of that same architecture. 
-Further model tuning may improve any given architecture's performance, but our focus for this paper remains on the 
-relative change in performance within each architecture when comparing different image augmentation protocols.
+interacts with both a convolutional architecture and an attention-based architecture, without taking model 
+hyperparameter tuning into account. As a result, a model's performance should only be compared against other models of 
+that same architecture. Further model tuning may improve any given architecture's performance, but our focus for this 
+paper remains on the relative change in performance within each architecture when comparing different image augmentation
+protocols.
 
 Another consideration is the choice of generative model chosen for the scope of this paper. While there are many image 
 generation model available, OpenAI's Dall-E-2 was chosen for the convenience that the API provided. However, there are a
 variety of both open source and closed source generative models that may prove to be better suited for synthetic image 
 augmentation tasks.
 
-Furthermore, while synthetic image augmentation has the potential to improve model performance, test results show that 
+Furthermore synthetic image augmentation has the potential to improve model performance, but test results show that 
 applying augmentation to all classes may actually hurt performance. When applying to the most severely demented classes,
-however, model performance improved significantly. Additional reearch into applying synthetic image augmentation 
+however, model performance improved significantly. Additional research into applying synthetic image augmentation 
 programmatically may be beneficial in developing an automated protocol, rather than manually choosing which classes to 
 augment with synthetic images.
 
