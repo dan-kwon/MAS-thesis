@@ -1,11 +1,173 @@
-\begin{thebibliography}{AI24}
+\begin{thebibliography}{MKC24}
 
-\bibitem[AI24]{AUG}
+\bibitem[AI24]{augment}
 Albumentations AI.
 \newblock ``What is image augmentation and how it can improve the performance
   of deep neural networks.'', 2024.
 \newblock
-  \texttt{https://albumentations.ai/docs/introduction/image/_augmentation/}
-  (Last Accessed: 2023-03-20).
+  \texttt{https://albumentations.ai/docs/introduction/image\_augmentation}
+  (Last Accessed: 2024-03-20).
+
+\bibitem[Boe23]{vit_data_req}
+Gaudenz Boesch.
+\newblock ``Vision Transformers (ViT) in Image Recognition - 2024 Guide.'',
+  2023.
+\newblock \texttt{https://viso.ai/deep-learning/vision-transformer-vit} (Last
+  Accessed: 2024-11-20).
+
+\bibitem[Chi24]{transfer}
+Sasank Chilamkurthy.
+\newblock ``Transfer Learning for Computer Vision Tutorial.'', 2024.
+\newblock
+  \texttt{https://pytorch.org/tutorials/beginner/transfer\_learning\_tutorial.html#}
+  (Last Accessed: 2024-09-10).
+
+\bibitem[Cli]{brain_atrophy}
+Cleveland Clinic.
+\newblock ``Brain Atrophy.''
+\newblock
+  \texttt{https://my.clevelandclinic.org/health/diseases/22515-brain-atrophy}
+  (Last Accessed: 2024-08-11).
+
+\bibitem[CZM19]{autoaugment}
+Ekin~D. Cubuk, Barret Zoph, Dandelion Mane, Vijay Vasudevan, and Quoc~V. Le.
+\newblock ``AutoAugment: Learning Augmentation Strategies from Data.'', 2019.
+
+\bibitem[DBK21]{vit}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
+  Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg
+  Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby.
+\newblock ``AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION
+  AT SCALE.'', 2021.
+
+\bibitem[Fal23]{alzheimer_mri_dataset}
+Falah.G.Salieh.
+\newblock ``Alzheimer MRI Dataset.''
+\newblock Hugging Face, 2023.
+
+\bibitem[GYZa]{medical_imaging}
+Pengfei Guo, Dong Yang, Can Zhao, and Daguang Xu.
+\newblock ``Addressing Medical Imaging Limitations with Synthetic Data
+  Generation.''
+\newblock
+  \texttt{https://developer.nvidia.com/blog/addressing-medical-imaging-limitations-with-synthetic-data-generation/}
+  (Last Accessed: 2024-07-10).
+
+\bibitem[GYZb]{mri_cost}
+Pengfei Guo, Dong Yang, Can Zhao, and Daguang Xu.
+\newblock ``Addressing Medical Imaging Limitations with Synthetic Data
+  Generation.''
+\newblock
+  \texttt{https://www.goodrx.com/health-topic/diagnostics/how-much-does-an-mri-cost}
+  (Last Accessed: 2024-07-14).
+
+\bibitem[HZR15]{resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock ``Deep Residual Learning for Image Recognition.'', 2015.
+
+\bibitem[IBM24]{convolution_diagram}
+IBM.
+\newblock ``What are convolutional neural networks?'', 2024.
+\newblock \texttt{https://www.ibm.com/topics/convolutional-neural-networks}
+  (Last Accessed: 2024-10-18).
+
+\bibitem[KB17]{adam}
+Diederik~P. Kingma and Jimmy~Lei Ba.
+\newblock ``ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION.'', 2017.
+
+\bibitem[Kli24]{cnn_diagram}
+Nico Klinger.
+\newblock ``Convolutional Neural Networks (CNNs): A 2025 Deep Dive.'', 2024.
+\newblock \texttt{https://viso.ai/deep-learning/convolutional-neural-networks/}
+  (Last Accessed: 2024-10-20).
+
+\bibitem[LCY14]{networkinnetwork}
+Min Lin, Qiang Chen, and Shuicheng Yan.
+\newblock ``Network In Network.'', 2014.
+
+\bibitem[Mah24]{cross_entropy_intro}
+Saurav Maheshkar.
+\newblock ``What Is Cross Entropy Loss? A Tutorial With Code.'', 2024.
+\newblock
+  \texttt{https://wandb.ai/sauravmaheshkar/cross-entropy/reports/What-Is-Cross-Entropy-Loss-A-Tutorial-With-Code--VmlldzoxMDA5NTMx}
+  (Last Accessed: 2024-10-10).
+
+\bibitem[MKC24]{synthetic_imaging}
+John~R. McNulty, Lee Kho, Alexandria~L. Case, Charlie Fornaca, Drew Johnston,
+  David Slater, Joshua~M. Abzug, and Sybil~A. Russell.
+\newblock ``Synthetic Medical Imaging Generation with Generative Adversarial
+  Networks For Plain Radiographs.'', 2024.
+
+\bibitem[ON15]{cnn_intro}
+Keiron O'Shea and Ryan Nash.
+\newblock ``An Introduction to Convolutional Neural Networks.'', 2015.
+
+\bibitem[Ope]{openai_api}
+OpenAI.
+\newblock ``Image generation: Learn how to generate or manipulate images with
+  DALL E.''
+\newblock
+  \texttt{https://platform.openai.com/docs/guides/images/introduction?context=python}
+  (Last Accessed: 2024-05-09).
+
+\bibitem[Pap24a]{max}
+PapersWithCode.
+\newblock ``Max Pooling.'', 2024.
+\newblock \texttt{https://paperswithcode.com/method/max-pooling} (Last
+  Accessed: 2024-09-14).
+
+\bibitem[Pap24b]{att}
+PapersWithCode.
+\newblock ``Multi-head Attention.'', 2024.
+\newblock \texttt{https://paperswithcode.com/method/multi-head-attention} (Last
+  Accessed: 2024-11-24).
+
+\bibitem[Pap24c]{dot}
+PapersWithCode.
+\newblock ``Scaled Dot-Product Attention.'', 2024.
+\newblock \texttt{https://paperswithcode.com/method/scaled} (Last Accessed:
+  2024-11-24).
+
+\bibitem[SCD19]{gradcam}
+Ramprasaath Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam,
+  Devi Parikh, and Dhruv Batra.
+\newblock ``Grad-CAM: Visual Explanations from Deep Networks via Gradient-based
+  Localization.'', 2019.
+
+\bibitem[SP17a]{nn_intro}
+Grant Sanderson and Josh Pullen.
+\newblock ``But what is a Neural Network?'', 2017.
+\newblock \texttt{https://www.3blue1brown.com/lessons/neural-networks} (Last
+  Accessed: 2024-05-02).
+
+\bibitem[SP17b]{gradient_desc}
+Grant Sanderson and Josh Pullen.
+\newblock ``Gradient descent, how neural networks learn.'', 2017.
+\newblock \texttt{https://www.3blue1brown.com/lessons/gradient-descent} (Last
+  Accessed: 2024-05-02).
+
+\bibitem[SP24a]{nn_analyze}
+Grant Sanderson and Josh Pullen.
+\newblock ``Analyzing our neural network.'', 2024.
+\newblock \texttt{https://www.3blue1brown.com/lessons/neural-network-analysis}
+  (Last Accessed: 2024-09-02).
+
+\bibitem[SP24b]{nn_backprop}
+Grant Sanderson and Josh Pullen.
+\newblock ``What is backpropagation really doing?'', 2024.
+\newblock \texttt{https://www.3blue1brown.com/lessons/backpropagation} (Last
+  Accessed: 2024-09-02).
+
+\bibitem[Sta]{cross_entropy_lecture}
+Josh Starmer.
+\newblock ``Neural Networks Part 6: Cross Entropy.''
+\newblock
+  \texttt{https://www.youtube.com/watch?v=6ArSys5qHAU&t=471s&ab\_channel=StatQuestwithJoshStarmer}
+  (Last Accessed: 2024-09-10).
+
+\bibitem[ZLL23]{deeplearningbook}
+Aston Zhang, Zachary~C. Lipton, Mu~Li, and Alexander~J. Smola.
+\newblock {\em Dive into Deep Learning}.
+\newblock Cambridge University Press, 2023.
 
 \end{thebibliography}

@@ -65,20 +65,18 @@
       \begin {center}
          \header{University of California} \\
          \normalsize Los Angeles \\
-         \parbox[c][270pt][c]{\textwidth}{
-             \begin{center}
-             \@titlesize \@title
-                 \end{center}
-         }
+         \vfill
+         \@titlesize \@title \\
+         \vskip 48pt plus0pt minus18pt
          \normalsize A \@thesisname\
 	 submitted in partial satisfaction \\
          of the requirements for the degree \\
-         \@degreename\if@department\ in \@department \fi\\
+         \@degreename\\
          \vskip 24pt plus0pt minus6pt
          by \\
          \vskip 24pt plus0pt minus6pt
          {\@author} \\
-         \vskip78pt
+         \vfill
          {\normalsize \@degreeyear}
       \end {center}
       \ColumnRestore
@@ -172,12 +170,12 @@
       \ifnum\c@members>0 \@signatureline{\@memberA}
          \else\typeout{No non-chair committee members.}\fi
       \ifnum\c@chairs>2
-         \@signatureline{\@chairC, Committee Co-Chair}
-         \@signatureline{\@chairB, Committee Co-Chair}
-         \@signatureline{\@chairA, Committee Co-Chair}
+         \@signatureline{\@chairC, Committee Co-chair}
+         \@signatureline{\@chairB, Committee Co-chair}
+         \@signatureline{\@chairA, Committee Co-chair}
       \else\ifnum\c@chairs>1
-         \@signatureline{\@chairB, Committee Co-Chair}
-         \@signatureline{\@chairA, Committee Co-Chair}
+         \@signatureline{\@chairB, Committee Co-chair}
+         \@signatureline{\@chairA, Committee Co-chair}
       \else\ifnum\c@chairs>0
          \@signatureline{\@chairA, Committee Chair}
       \else\typeout{No committee chair.}
@@ -260,7 +258,7 @@
 
 \newcounter{vitaitems}
 \setcounter{vitaitems}{0}
-\newcommand\@vitadate[1]{{\parbox[t]{1in}{\normalfont{#1}}}}
+\newcommand\@vitadate[1]{{\parbox[t]{1.25in}{\normalfont{#1}}}}
 \newcommand\@vitatext[1]{{\parbox[t]{5.25in}{\normalfont{#1}}}}
 \newcommand\vitaitem[2]{
    \ifcase\value{vitaitems}
@@ -342,7 +340,7 @@
 
 \newcommand\@printvitaitem[1]{
    \noindent
-   \begin {tabular} {@{}p{1in}@{}p{6in}@{}}
+   \begin {tabular} {@{}p{1.25in}@{}p{5.25in}@{}}
       #1
    \end {tabular}
 }
@@ -460,28 +458,28 @@
       \begin{center}
          % 2016 Title and author can no longer be in bold, or 
          % be larger than surrounding text.
-         \header{Abstract of the \MakeUppercase{\@Thesisname}}\\[30pt]
+         \header{Abstract of the \MakeUppercase{\@Thesisname}}\\[12pt]
          % 2016 Author name can no longer be in bold, or be larger
          % than surrounding text.
-         {\@titlesize \@title}\\[24pt]
-         \normalsize \normalfont by\\[24pt]
+         {\@titlesize \@title}\\[12pt]
+         \normalsize \normalfont by\\[12pt]
          {\@author} \\
          \normalsize \normalfont
-	 \@degreename\if@department\ in \@department \fi\\
+	 \@degreename\\
          University of California, Los Angeles, \@degreeyear \\
          \ifnum\c@chairs>2
-            Professor \@chairA, Co-Chair \\
-            Professor \@chairB, Co-Chair \\
-            Professor \@chairC, Co-Chair \\
+            Professor \@chairA, Co-chair \\
+            Professor \@chairB, Co-chair \\
+            Professor \@chairC, Co-chair \\
          \else\ifnum\c@chairs>1
-            Professor \@chairA, Co-Chair \\
-            Professor \@chairB, Co-Chair \\
+            Professor \@chairA, Co-chair \\
+            Professor \@chairB, Co-chair \\
          \else\ifnum\c@chairs>0
             Professor \@chairA, Chair \\
          \else\typeout{No committee chair.}
          \fi\fi\fi
       \end{center}
-      \ifx\@spacing\@doublespacing\vskip 24pt\else\vskip 24pt\fi
+      \ifx\@spacing\@doublespacing\vskip 12pt\else\vskip 24pt\fi
       \renewcommand\baselinestretch{#1}\@normalsize
       %
       % Set up spacing.
