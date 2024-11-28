@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: uclathes.bst
+Database file #1: bib/bibliography.bib
+UCLA thesis.bst Version 0.92 BETA (3/28/91).
+Bugs to wales@CS.UCLA.EDU
+You've used 28 entries,
+            2546 wiz_defined-function locations,
+            670 strings with 8911 characters,
+and the built_in function-call counts, 9591 in all, are:
+= -- 891
+> -- 528
+< -- 0
++ -- 195
+- -- 150
+* -- 597
+:= -- 1494
+add.period$ -- 97
+call.type$ -- 28
+change.case$ -- 159
+chr.to.int$ -- 23
+cite$ -- 28
+duplicate$ -- 333
+empty$ -- 729
+format.name$ -- 230
+if$ -- 1945
+int.to.chr$ -- 6
+int.to.str$ -- 0
+missing$ -- 30
+newline$ -- 135
+num.names$ -- 84
+pop$ -- 317
+preamble$ -- 1
+purify$ -- 243
+quote$ -- 0
+skip$ -- 380
+stack$ -- 0
+substring$ -- 245
+swap$ -- 28
+text.length$ -- 0
+text.prefix$ -- 52
+top$ -- 2
+type$ -- 220
+warning$ -- 0
+while$ -- 71
+width$ -- 33
+write$ -- 317

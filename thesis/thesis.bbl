@@ -19,14 +19,14 @@ Gaudenz Boesch.
 Sasank Chilamkurthy.
 \newblock ``Transfer Learning for Computer Vision Tutorial.'', 2024.
 \newblock
-  \texttt{https://pytorch.org/tutorials/beginner/transfer\_learning\_tutorial.html#}
+  \texttt{https://pytorch.org/tutorials/beginner/transfer\_learning\_tutorial.html}
   (Last Accessed: 2024-09-10).
 
 \bibitem[Cli]{brain_atrophy}
 Cleveland Clinic.
 \newblock ``Brain Atrophy.''
 \newblock
-  \texttt{https://my.clevelandclinic.org/health/diseases/22515-brain-atrophy}
+  \texttt{https://my.clevelandclinic.org/health/\\diseases/22515-brain-atrophy}
   (Last Accessed: 2024-08-11).
 
 \bibitem[CZM19]{autoaugment}
@@ -50,7 +50,7 @@ Pengfei Guo, Dong Yang, Can Zhao, and Daguang Xu.
 \newblock ``Addressing Medical Imaging Limitations with Synthetic Data
   Generation.''
 \newblock
-  \texttt{https://developer.nvidia.com/blog/addressing-medical-imaging-limitations-with-synthetic-data-generation/}
+  \texttt{https://developer.nvidia.com/blog/addressing-medical-imaging-\\limitations-with-synthetic-data-generation}
   (Last Accessed: 2024-07-10).
 
 \bibitem[GYZb]{mri_cost}
@@ -89,8 +89,9 @@ Min Lin, Qiang Chen, and Shuicheng Yan.
 Saurav Maheshkar.
 \newblock ``What Is Cross Entropy Loss? A Tutorial With Code.'', 2024.
 \newblock
-  \texttt{https://wandb.ai/sauravmaheshkar/cross-entropy/reports/What-Is-Cross-Entropy-Loss-A-Tutorial-With-Code--VmlldzoxMDA5NTMx}
-  (Last Accessed: 2024-10-10).
+  \texttt{https://wandb.ai/sauravmaheshkar/cross-entropy/reports/What-Is-Cross\\
+  -Entropy-Loss-A-Tutorial-With-Code--VmlldzoxMDA5NTMx} (Last Accessed:
+  2024-10-10).
 
 \bibitem[MKC24]{synthetic_imaging}
 John~R. McNulty, Lee Kho, Alexandria~L. Case, Charlie Fornaca, Drew Johnston,
@@ -107,13 +108,13 @@ OpenAI.
 \newblock ``Image generation: Learn how to generate or manipulate images with
   DALL E.''
 \newblock
-  \texttt{https://platform.openai.com/docs/guides/images/introduction?context=python}
+  \texttt{https://platform.openai.com/docs/guides/images/introduction?context\\=python}
   (Last Accessed: 2024-05-09).
 
 \bibitem[Pap24a]{max}
 PapersWithCode.
 \newblock ``Max Pooling.'', 2024.
-\newblock \texttt{https://paperswithcode.com/method/max-pooling} (Last
+\newblock \texttt{https://paperswithcode.com/method/\\max-pooling} (Last
   Accessed: 2024-09-14).
 
 \bibitem[Pap24b]{att}
@@ -160,10 +161,10 @@ Grant Sanderson and Josh Pullen.
 
 \bibitem[Sta]{cross_entropy_lecture}
 Josh Starmer.
-\newblock ``Neural Networks Part 6: Cross Entropy.''
-\newblock
-  \texttt{https://www.youtube.com/watch?v=6ArSys5qHAU&t=471s&ab\_channel=StatQuestwithJoshStarmer}
-  (Last Accessed: 2024-09-10).
+\newblock ``Addressing Medical Imaging Limitations with Synthetic Data
+  Generation.''
+\newblock \texttt{https://statquest.org/neural-networks-part-6-cross-entropy/}
+  (Last Accessed: 2024-10-28).
 
 \bibitem[ZLL23]{deeplearningbook}
 Aston Zhang, Zachary~C. Lipton, Mu~Li, and Alexander~J. Smola.

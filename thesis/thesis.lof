@@ -1,0 +1,27 @@
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of real MRI images\relax }}{3}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Results of Dall-E-2's image variation generation\relax }}{4}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Grad-CAM when predicting ModerateDemented for ModerateDemented class\relax }}{7}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Grad-CAM when predicting NonDemented for ModerateDemented class\relax }}{8}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Grad-CAM when predicting ModerateDemented for NonDemented class\relax }}{8}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Grad-CAM when predicting NonDemented for NonDemented class\relax }}{9}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration of a typical fully-connected neural network\relax }}{10}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of Cross Entropy Loss vs Squared Residual \cite {cross_entropy_lecture}\relax }}{12}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Typical CNN Architecture \cite {cnn_diagram}\relax }}{16}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Illustration of Convolutional Layer \cite {convolution_diagram}\relax }}{17}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Illustration of 2x2 Max Pooling \cite {max}\relax }}{17}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Basic CNN Architecture\relax }}{18}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces ResNet-18 Architecture \cite {resnet}\relax }}{19}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces ViT Architecture \cite {vit}\relax }}{20}{}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Hypothetic 3-dimensional word embeddings\relax }}{21}{}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces ViT Encoder Architecture \cite {vit}\relax }}{23}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces basic image augmentation examples \cite {augment}\relax }}{26}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Illustration of the image generation policy\relax }}{28}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}

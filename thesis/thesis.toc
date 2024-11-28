@@ -1,0 +1,36 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {chapter}{\numberline {2}Dataset}{3}{}%
+\contentsline {section}{\numberline {2.1}Alzheimer MRI Preprocessed Dataset}{3}{}%
+\contentsline {section}{\numberline {2.2}Synthetic Images}{4}{}%
+\contentsline {chapter}{\numberline {3}Exploration using Grad-CAM}{5}{}%
+\contentsline {section}{\numberline {3.1}Overview of Grad-CAM}{5}{}%
+\contentsline {section}{\numberline {3.2}Exploratory Results}{6}{}%
+\contentsline {subsection}{\numberline {3.2.1}Real vs synthetic images labeled as having moderate dementia}{7}{}%
+\contentsline {subsection}{\numberline {3.2.2}Real vs synthetic images labeled as having no dementia}{8}{}%
+\contentsline {chapter}{\numberline {4}Background on Training Deep Learning Models}{10}{}%
+\contentsline {section}{\numberline {4.1}Overview of Neural Networks}{10}{}%
+\contentsline {section}{\numberline {4.2}Loss Function}{11}{}%
+\contentsline {section}{\numberline {4.3}Gradient Descent}{13}{}%
+\contentsline {subsection}{\numberline {4.3.1}Learning Rate}{13}{}%
+\contentsline {subsection}{\numberline {4.3.2}Momentum}{14}{}%
+\contentsline {subsection}{\numberline {4.3.3}Adam Optimizer}{14}{}%
+\contentsline {section}{\numberline {4.4}Fine-tuning Pre-trained Models}{15}{}%
+\contentsline {chapter}{\numberline {5}Overview of Model Architectures}{16}{}%
+\contentsline {section}{\numberline {5.1}Convolutional Neural Networks}{16}{}%
+\contentsline {section}{\numberline {5.2}ResNet-18}{18}{}%
+\contentsline {section}{\numberline {5.3}Vision Transformers}{20}{}%
+\contentsline {subsection}{\numberline {5.3.1}Background on Embeddings}{21}{}%
+\contentsline {subsection}{\numberline {5.3.2}Patch Embeddings and Positional Encoding}{21}{}%
+\contentsline {subsection}{\numberline {5.3.3}Transformer Architecture}{22}{}%
+\contentsline {chapter}{\numberline {6}Overview of Image Augmentation Techniques}{25}{}%
+\contentsline {section}{\numberline {6.1}Rudimentary Image Augmentation}{25}{}%
+\contentsline {section}{\numberline {6.2}AutoAugment}{26}{}%
+\contentsline {section}{\numberline {6.3}Synthetic Image Generation Policy}{27}{}%
+\contentsline {chapter}{\numberline {7}Methodology and Results}{29}{}%
+\contentsline {section}{\numberline {7.1}Methodology}{29}{}%
+\contentsline {section}{\numberline {7.2}Basic CNN Results}{30}{}%
+\contentsline {section}{\numberline {7.3}ResNet Results}{31}{}%
+\contentsline {section}{\numberline {7.4}ViT Results}{32}{}%
+\contentsline {chapter}{\numberline {8}Conclusion}{33}{}%
+\contentsline {chapter}{\numberline {9}Additional Considerations}{35}{}%
+\contentsline {chapter}{References}{37}{}%
